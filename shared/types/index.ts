@@ -1,5 +1,5 @@
 export type MDRenderType = {
-  datas: MDFileItemType[];
+  datas: MDFileItemType[] | [];
 };
 export type MDFilesType = {
   home?: MDFileItemType[];

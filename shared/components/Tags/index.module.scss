@@ -2,6 +2,9 @@
 .tags {
   display: flex;
   gap: 1.25rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: $gray5;
+  .value {
+    color: $red8;
+  }
 }

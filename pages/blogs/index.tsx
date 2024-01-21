@@ -1,18 +1,16 @@
-import React from "react";
-import { MDRenderType } from "@/shared/types";
+import React, { memo } from "react";
 import Layout from "@/shared/components/Layout";
 import styles from "./index.module.scss";
 import MDRender from "@/shared/components/MDRender";
-import getMDFileContent from "@/shared/utils/getMDContents";
-const Blogs: React.FC<MDRenderType> = ({ datas }) => {
+import globalStore from "@/shared/globalStore";
+const Blogs: React.FC = () => {
+  const { allPosts } = globalStore();
   return (
     <Layout>
-      <MDRender className={styles.blogs} datas={datas} />
+      <div className={styles.blogs}>
+        <MDRender datas={allPosts?.blogs ?? []} />
+      </div>
     </Layout>
   );
 };
-export default Blogs;
-
-export function getStaticProps() {
-  return getMDFileContent("contents/blogs");
-}
+export default memo(Blogs);

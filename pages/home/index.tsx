@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import MDDetail from "../MDDetail";
 import LastPostsCard from "@/shared/components/LastPostCard";
 import globalStore from "@/shared/globalStore";
+import { RoutePath } from "@/shared/types";
 const Home: React.FC = () => {
   const { homePost } = globalStore();
   return (
@@ -11,7 +12,12 @@ const Home: React.FC = () => {
         {homePost && <MDDetail contents={homePost?.content} />}
       </div>
       <div className={styles.contents}>
-        {<LastPostsCard readMoreLink="/frontEnd" title="LATEST POSTS" />}
+        {
+          <LastPostsCard
+            readMoreLink={`/${RoutePath.blogs}`}
+            title="LATEST POSTS"
+          />
+        }
       </div>
     </div>
   );
