@@ -4,6 +4,9 @@
   justify-content: space-between;
   margin: 3.125rem 0;
   gap: 3.125rem;
+  @include medias(($s, $m, $l)) {
+    flex-direction: column;
+  }
   .avatar {
     border-radius: 5%;
     box-shadow: white 0px 0px 0px 25rem inset;

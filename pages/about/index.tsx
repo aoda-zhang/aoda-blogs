@@ -16,6 +16,7 @@ const About: React.FC = () => {
               alt="me"
               width={420}
               height={340}
+              priority
               className={styles.avatar}
             />
             <div className={styles.info}>
