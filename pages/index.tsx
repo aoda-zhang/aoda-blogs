@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Layout from "@/shared/components/Layout";
+import Layout from "@/shared/components/Layouts";
 import { MDFilesType, RoutePath } from "@/shared/types";
 import Home from "./home";
 import getMDFileContent from "@/shared/utils/getMDContents";

@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import MDDetail from "../MDDetail";
-import Layout from "@/shared/components/Layout";
+import Layout from "@/shared/components/Layouts";
 import globalStore from "@/shared/globalStore";
 import styles from "./index.module.scss";
 import Image from "next/image";
