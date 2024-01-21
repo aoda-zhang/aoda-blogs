@@ -5,6 +5,7 @@
   box-sizing: border-box;
   padding: 0 18%;
   background-color: $steelBlue1;
+  font-size: 18px;
   @include medias(($s, $m)) {
     padding: 0 6%;
   }

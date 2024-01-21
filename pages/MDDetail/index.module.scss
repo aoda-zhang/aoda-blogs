@@ -21,7 +21,9 @@
   }
 }
 .contents {
-  p {
+  p,
+  li {
     color: $gray5;
+    margin-bottom: 0.625rem;
   }
 }

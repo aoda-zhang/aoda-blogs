@@ -9,6 +9,15 @@
     box-shadow: white 0px 0px 0px 25rem inset;
   }
   .info {
-    line-height: 2.5rem;
+    box-sizing: border-box;
+    line-height: 1.5;
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .value {
+      color: $gray5;
+    }
   }
 }

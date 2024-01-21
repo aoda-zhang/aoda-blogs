@@ -18,7 +18,10 @@ const About: React.FC = () => {
               height={340}
               className={styles.avatar}
             />
-            <div className={styles.info}>{bio}</div>
+            <div className={styles.info}>
+              <div className={styles.title}>{bio?.title}</div>
+              <div className={styles.value}>{bio?.info}</div>
+            </div>
           </div>
           <MDDetail contents={allPosts?.about?.[0]?.content ?? ""} />
         </Layout>

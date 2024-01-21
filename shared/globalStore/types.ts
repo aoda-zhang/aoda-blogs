@@ -3,7 +3,10 @@ export type GlobalState = {
   frontEndOption: string;
   backEndOptions: Record<string, unknown>;
   menuOptions: { label: string; path: string }[];
-  bio: string;
+  bio: {
+    title: string;
+    info: string;
+  };
   allPosts: MDFilesType;
   homePost: MDFileItemType;
   currentPost: MDFileItemType;
