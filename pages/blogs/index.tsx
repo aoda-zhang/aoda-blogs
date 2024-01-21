@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import Layout from "@/shared/components/Layouts";
+import Layout from "@/shared/components/Layout";
 import styles from "./index.module.scss";
 import MDRender from "@/shared/components/MDRender";
 import globalStore from "@/shared/globalStore";

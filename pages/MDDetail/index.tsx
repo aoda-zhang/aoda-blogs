@@ -7,7 +7,7 @@ import globalStore from "@/shared/globalStore";
 import classNames from "classnames";
 import formatPostDate from "@/shared/utils/formatPostDate";
 import Tags from "@/shared/components/Tags";
-import Layout from "@/shared/components/Layouts";
+import Layout from "@/shared/components/Layout";
 const MDDetail: React.FC<{ contents: string; className?: string }> = ({
   contents = "",
   className,
