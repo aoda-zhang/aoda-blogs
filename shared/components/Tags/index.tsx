@@ -8,7 +8,7 @@ const Tags: React.FC<Props> = ({ tags }) => {
   return (
     <div className={styles.tags}>
       {tagList?.map((_item, i) => (
-        <span key={i}>{_item?.toUpperCase()}</span>
+        <span key={i}>{`#${_item?.toUpperCase()}`}</span>
       ))}
     </div>
   );
