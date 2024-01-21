@@ -4,10 +4,10 @@ import "highlight.js/styles/github-dark.min.css";
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
 import globalStore from "@/shared/globalStore";
-import Layout from "@/shared/components/Layout";
 import classNames from "classnames";
 import formatPostDate from "@/shared/utils/formatPostDate";
 import Tags from "@/shared/components/Tags";
+import Layout from "@/shared/components/Layout";
 const MDDetail: React.FC<{ contents: string; className?: string }> = ({
   contents = "",
   className,
