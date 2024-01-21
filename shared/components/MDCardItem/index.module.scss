@@ -1,0 +1,9 @@
+@import "@style";
+.title {
+  font-size: 1.3125rem;
+  font-weight: 600;
+  margin-bottom: 1.625rem;
+  &:hover {
+    color: $red8;
+  }
+}

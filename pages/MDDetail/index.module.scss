@@ -1,0 +1,27 @@
+@import "@style";
+.title {
+  font-size: 3.125rem;
+  font-weight: 700;
+  padding-top: 2.5rem;
+  padding-bottom: 1.875rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid $gray2;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .date {
+    color: $gray3;
+  }
+  .tags {
+    display: flex;
+    gap: 0.625rem;
+    color: $red8;
+  }
+}
+.contents {
+  p {
+    color: $gray5;
+  }
+}

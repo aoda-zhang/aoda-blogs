@@ -1,0 +1,25 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .main {
+    .me {
+      border-radius: 50%;
+    }
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .contents {
+    .item {
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}

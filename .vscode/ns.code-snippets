@@ -1,0 +1,26 @@
+{
+  "ns": {
+    "prefix": "ns",
+    "body": [
+      "import getMDFileContent from \"@/shared/utils/getMDContents\";",
+      "import React,{memo} from \"react\";",
+      "import MDRender from \"@/shared/components/MDRender\";",
+      "import { MDRenderType } from \"@/shared/types\";",
+      "import styles from \"./index.module.scss\";",
+      "const Home: React.FC<MDRenderType> = ({ datas }) => {",
+      "  return (",
+      "    <div className={styles.home}>",
+      "      {<MDRender datas={datas} /> }",
+      "    </div>",
+      "  )",
+      "};",
+      "export default memo(Home);",
+      "",
+      "export function getStaticProps() {",
+      "  return getMDFileContent(\"contents/frontEnd\");",
+      "}",
+      ""
+    ],
+    "description": ""
+  }
+}
