@@ -4,9 +4,10 @@ import "highlight.js/styles/github-dark.min.css";
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
 import globalStore from "@/shared/globalStore";
-import Layout from "@/shared/components/layout";
+import Layout from "@/shared/components/Layout";
 import classNames from "classnames";
 import formatPostDate from "@/shared/utils/formatPostDate";
+import Tags from "@/shared/components/Tags";
 const MDDetail: React.FC<{ contents: string; className?: string }> = ({
   contents = "",
   className,
@@ -16,16 +17,6 @@ const MDDetail: React.FC<{ contents: string; className?: string }> = ({
     hljs.registerLanguage("tsx", typescript);
     hljs.highlightAll();
   }, [contents]);
-  const renderTags = (tag: string) => {
-    const tagList = tag?.split(",");
-    return (
-      <div className={styles.tags}>
-        {tagList?.map((_item, i) => (
-          <span key={i}>{_item?.toUpperCase()}</span>
-        ))}
-      </div>
-    );
-  };
   return (
     <>
       {contents ? (
@@ -42,7 +33,7 @@ const MDDetail: React.FC<{ contents: string; className?: string }> = ({
             <span className={styles.date}>{`Created: ${formatPostDate(
               currentPost?.date,
             )}`}</span>
-            {renderTags(currentPost?.tags ?? "")}
+            <Tags tags={currentPost?.tags} />
           </div>
 
           <div

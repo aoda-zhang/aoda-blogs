@@ -1,5 +1,6 @@
 @import "@style";
 .layout {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -26,9 +27,5 @@
     top: 0;
     background-color: $steelBlue1;
     padding: 10px;
-  }
-  .content {
-  }
-  .footer {
   }
 }

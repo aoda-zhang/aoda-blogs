@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import styles from "./index.module.scss";
 import MDDetail from "../MDDetail";
-import LastPostsCard from "@/shared/components/lastPostsCard";
+import LastPostsCard from "@/shared/components/LastPostCard";
 import globalStore from "@/shared/globalStore";
 const Home: React.FC = () => {
   const { homePost } = globalStore();

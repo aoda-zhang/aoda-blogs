@@ -1,6 +1,6 @@
 import React, { ReactNode, memo } from "react";
 import styles from "./index.module.scss";
-import Menu from "../menu";
+import Menu from "../Menu";
 const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div className={styles.layout}>

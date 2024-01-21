@@ -1,5 +1,5 @@
 @import "@style";
-.LastPostsCard {
+.lastPostCard {
   .item {
     .header {
       display: flex;
@@ -51,11 +51,15 @@
             font-size: 1.3125rem;
             font-weight: 600;
             margin-bottom: 0.3125rem;
+            &:hover {
+              color: $blue8;
+            }
           }
           .tags {
             display: flex;
-            gap: 0.625rem;
-            color: $red8;
+            gap: 1.25rem;
+            font-size: 0.75rem;
+            color: $gray5;
           }
           .summary {
             color: $gray3;

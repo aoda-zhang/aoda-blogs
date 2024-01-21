@@ -3,8 +3,7 @@ export type MDRenderType = {
 };
 export type MDFilesType = {
   home?: MDFileItemType[];
-  frontEnd?: MDFileItemType[];
-  backEnd?: MDFileItemType[];
+  blogs?: MDFileItemType[];
   about?: MDFileItemType[];
 };
 export type MDFileItemType = {
@@ -21,8 +20,7 @@ export type MDFileOption = {
 };
 export enum RoutePath {
   home = "home",
-  frontEnd = "frontEnd",
-  backEnd = "backEnd",
+  blogs = "blogs",
   about = "about",
   footer = "footer",
 }
