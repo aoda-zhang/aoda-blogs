@@ -14,9 +14,11 @@ const About: React.FC = () => {
             <Image
               src="/images/me.jpg"
               alt="me"
-              width={420}
+              width={400}
               height={340}
               priority
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAmElEQVR42mP8/wcAAwAB/ADblY6JAAAAABJRU5ErkJggg=="
               className={styles.avatar}
             />
             <div className={styles.info}>
