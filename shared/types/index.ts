@@ -19,7 +19,6 @@ export type MDFileOption = {
 export enum RoutePath {
   home = "home",
   blogs = "blogs",
-  daily = "daily",
   about = "about",
   footer = "footer",
 }
