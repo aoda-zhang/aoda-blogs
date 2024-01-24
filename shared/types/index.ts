@@ -2,15 +2,13 @@ export type MDRenderType = {
   datas: MDFileItemType[] | [];
 };
 export type MDFilesType = {
-  home?: MDFileItemType[];
-  blogs?: MDFileItemType[];
-  about?: MDFileItemType[];
+  [K in RoutePath]?: MDFileItemType[];
 };
 export type MDFileItemType = {
   title?: string;
   date?: string;
   summary?: string;
-  content: string;
+  content: string | undefined;
   tags?: string;
   [key: string]: string | number | Date | undefined;
 };
@@ -21,6 +19,7 @@ export type MDFileOption = {
 export enum RoutePath {
   home = "home",
   blogs = "blogs",
+  daily = "daily",
   about = "about",
   footer = "footer",
 }

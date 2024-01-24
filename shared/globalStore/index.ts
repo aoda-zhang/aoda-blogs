@@ -4,6 +4,7 @@ import { immer } from "zustand/middleware/immer";
 import { GlobalAction, GlobalState } from "./types";
 import { MDFileItemType, MDFilesType, RoutePath, StoreKeys } from "../types";
 import formatPostDate from "../utils/formatPostDate";
+import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 
 const defaultState: GlobalState = {
   allPosts: {},
@@ -15,11 +16,15 @@ const defaultState: GlobalState = {
   },
   menuOptions: [
     {
-      label: "Blogs",
+      label: capitalizeFirstLetter(RoutePath.blogs),
       path: `/${RoutePath.blogs}`,
     },
     {
-      label: "About",
+      label: capitalizeFirstLetter(RoutePath.daily),
+      path: `/${RoutePath.daily}`,
+    },
+    {
+      label: capitalizeFirstLetter(RoutePath.about),
       path: `/${RoutePath.about}`,
     },
   ],
