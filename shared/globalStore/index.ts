@@ -20,17 +20,13 @@ const defaultState: GlobalState = {
       path: `/${RoutePath.blogs}`,
     },
     {
-      label: capitalizeFirstLetter(RoutePath.daily),
-      path: `/${RoutePath.daily}`,
-    },
-    {
       label: capitalizeFirstLetter(RoutePath.about),
       path: `/${RoutePath.about}`,
     },
   ],
   bio: {
     title: "Hi, I’m Aoda 👋",
-    info: "I am a full-stack development engineer from mainland China-mainland. I have extensive working experience in global multinational companies. In the past, I worked for Newegg, an e-commerce company in the United States, and Manulife, a financial company in Canada. I have very good relationships with colleagues from other countries. It’s a pleasant cooperation experience. I love them. I like writing code and exploring all new and unknown things. I enjoy that my career can bring some good changes to all walks of life.",
+    info: "I am a full-stack development engineer from China-mainland. I have extensive working experience in global multinational companies. In the past, I worked for Newegg, an e-commerce company in the United States, and Manulife, a financial company in Canada. I have very good relationships with colleagues from other countries. It’s a pleasant cooperation experience. I love them. I like writing code and exploring all new and unknown things. I enjoy that my career can bring some good changes to all walks of life.",
   },
 };
 const useBearStore = create<GlobalState & GlobalAction>()(
