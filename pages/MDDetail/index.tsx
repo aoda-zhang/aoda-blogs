@@ -8,10 +8,10 @@ import classNames from "classnames";
 import formatPostDate from "@/shared/utils/formatPostDate";
 import Tags from "@/shared/components/Tags";
 import Layout from "@/shared/components/Layout";
-const MDDetail: React.FC<{ contents: string; className?: string }> = ({
-  contents = "",
-  className,
-}) => {
+const MDDetail: React.FC<{
+  contents: string | undefined;
+  className?: string;
+}> = ({ contents = "", className }) => {
   const { currentPost } = globalStore();
   useEffect(() => {
     hljs.registerLanguage("tsx", typescript);
@@ -22,7 +22,7 @@ const MDDetail: React.FC<{ contents: string; className?: string }> = ({
       {contents ? (
         <div
           className={styles.contents}
-          dangerouslySetInnerHTML={{ __html: contents }}
+          dangerouslySetInnerHTML={{ __html: contents ?? "" }}
         ></div>
       ) : (
         <Layout>
@@ -38,7 +38,7 @@ const MDDetail: React.FC<{ contents: string; className?: string }> = ({
 
           <div
             className={styles.contents}
-            dangerouslySetInnerHTML={{ __html: currentPost?.content }}
+            dangerouslySetInnerHTML={{ __html: currentPost?.content ?? "" }}
           ></div>
         </Layout>
       )}

@@ -14,9 +14,9 @@ const Index: React.FC<{ datas: MDFilesType }> = ({ datas }) => {
 };
 export default Index;
 export function getStaticProps() {
-  return getMDFileContent([
-    { path: `contents/${RoutePath.home}`, name: RoutePath.home },
-    { path: `contents/${RoutePath.blogs}`, name: RoutePath.blogs },
-    { path: `contents/${RoutePath.about}`, name: RoutePath.about },
-  ]);
+  const paths = Object.keys(RoutePath).map(key => ({
+    path: `contents/${key}`,
+    name: key as RoutePath,
+  }));
+  return getMDFileContent(paths);
 }
