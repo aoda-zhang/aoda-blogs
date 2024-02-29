@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import Layout from "@/shared/components/Layout";
+import React, { memo, useEffect } from "react";
 import { MDFilesType, RoutePath } from "@/shared/types";
 import Home from "./home";
 import getMDFileContent from "@/shared/utils/getMDContents";
@@ -10,9 +9,9 @@ const Index: React.FC<{ datas: MDFilesType }> = ({ datas }) => {
     setHomePost(datas?.home?.[0] ?? { content: "" });
     setAllPosts(datas ?? {});
   }, [datas, datas?.blogs, datas?.home, setHomePost, setAllPosts]);
-  return <Layout>{<Home />}</Layout>;
+  return <Home />;
 };
-export default Index;
+export default memo(Index);
 export function getStaticProps() {
   const paths = Object.keys(RoutePath).map(key => ({
     path: `contents/${key}`,

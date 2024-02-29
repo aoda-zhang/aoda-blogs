@@ -7,7 +7,6 @@ import globalStore from "@/shared/globalStore";
 import classNames from "classnames";
 import formatPostDate from "@/shared/utils/formatPostDate";
 import Tags from "@/shared/components/Tags";
-import Layout from "@/shared/components/Layout";
 const MDDetail: React.FC<{
   contents: string | undefined;
   className?: string;
@@ -25,7 +24,7 @@ const MDDetail: React.FC<{
           dangerouslySetInnerHTML={{ __html: contents ?? "" }}
         ></div>
       ) : (
-        <Layout>
+        <>
           <div className={classNames([className, styles.title])}>
             {currentPost?.title}
           </div>
@@ -40,7 +39,7 @@ const MDDetail: React.FC<{
             className={styles.contents}
             dangerouslySetInnerHTML={{ __html: currentPost?.content ?? "" }}
           ></div>
-        </Layout>
+        </>
       )}
     </>
   );

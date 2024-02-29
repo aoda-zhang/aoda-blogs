@@ -20,7 +20,6 @@ export enum RoutePath {
   home = "home",
   blogs = "blogs",
   about = "about",
-  footer = "footer",
 }
 export enum StoreKeys {
   globalStore = "globalStore",
