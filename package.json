@@ -1,7 +1,8 @@
 {
-  "name": "my-nextjs-project",
+  "name": "aoda-blogs",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --port 3002",
     "build": "next build",
@@ -10,6 +11,10 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.4",
+    "@types/mdx": "^2.0.13",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
