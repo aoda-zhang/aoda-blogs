@@ -1,6 +1,6 @@
-import { PostItem } from "./types";
+import { PostItemType } from "./types";
 
-const PostsRouter: PostItem[] = [
+const PostsRouter: PostItemType[] = [
   {
     title: "测试1",
     desc: "测试1的描述",
