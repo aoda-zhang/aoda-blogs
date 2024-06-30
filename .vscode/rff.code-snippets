@@ -1,0 +1,15 @@
+{
+  "rff": {
+    "prefix": "rff",
+    "body": [
+      "import React, { FC, memo } from \"react\";",
+      "import styles from \"./index.module.scss\";",
+      "const Header: FC = () => {",
+      "  return <div>Header</div>;",
+      "};",
+      "export default memo(Header);",
+      ""
+    ],
+    "description": "rff"
+  }
+}
