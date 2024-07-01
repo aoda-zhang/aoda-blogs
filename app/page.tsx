@@ -1,10 +1,19 @@
+"use client";
 import React, { FC, memo } from "react";
-import styles from "./index.module.scss";
-import HomePost from "./tutorials/docs/home.mdx";
+
+import globalStore from "@/store/globalStore";
+import LanguageKeys from "@/constants/languageKeys";
+
+import styles from "./home/index.module.scss";
+import TitlePost from "./home/title.mdx";
+import TitlePostZH from "./home/title.zh_CN.mdx";
 const Home: FC = () => {
+  const language = globalStore(state => state.language);
   return (
     <div className={styles.home}>
-      <HomePost />
+      <div className={styles.title}>
+        {language === LanguageKeys.zh_CN ? <TitlePostZH /> : <TitlePost />}
+      </div>
     </div>
   );
 };

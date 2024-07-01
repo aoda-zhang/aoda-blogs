@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { PostItemParam } from "../types";
+
 import pageKeys from "@/constants/pageKey";
 import PostContainer from "@/shared/components/PostContainer";
+
+import { PostItemParam } from "../types";
 
 const tutorialPath = `/app/${pageKeys.tutorial}/${pageKeys.docs}`;
 

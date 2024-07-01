@@ -1,5 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
+
+import TriggerTheme from "../TtiggerTheme";
+
+import styles from "./index.module.scss";
+
 const Footer: FC = () => {
-  return <div>Footer</div>;
+  return (
+    <div className={styles.footer}>
+      <TriggerTheme />
+    </div>
+  );
 };
-export default Footer;
+export default memo(Footer);

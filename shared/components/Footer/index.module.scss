@@ -1,0 +1,12 @@
+@import "@style";
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  border-top: 0.0625rem solid $gray1;
+  padding: 1rem;
+  color: $gray3;
+  @include medias(($l, $xl)) {
+    padding: 1rem 10%;
+  }
+}

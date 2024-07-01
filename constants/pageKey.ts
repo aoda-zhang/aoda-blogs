@@ -3,6 +3,7 @@ const pageKeys = {
   about: "about",
   tutorial: "tutorials",
   docs: "docs",
+  home: "home",
 };
 
 export default pageKeys;

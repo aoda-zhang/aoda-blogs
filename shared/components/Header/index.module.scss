@@ -16,5 +16,22 @@
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
+    :global(.ant-menu) {
+      width: 12.5rem;
+      font-size: 1.125rem;
+      border: none;
+      background: none;
+      a {
+        color: $gray3;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .right {
+    .icon {
+      cursor: pointer;
+    }
   }
 }

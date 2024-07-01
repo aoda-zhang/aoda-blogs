@@ -1,0 +1,29 @@
+@import "@style";
+.home {
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-weight: 800;
+      line-height: 1.2;
+      font-size: 6rem;
+      padding: 4rem 1rem;
+      @include medias(($s, $m)) {
+        font-size: 3rem;
+        padding: 4rem 0.6rem 2rem 0.6rem;
+      }
+    }
+    p {
+      color: $gray3;
+      font-weight: 400;
+      font-size: 1.875rem;
+      padding: 0 2.875rem;
+      @include medias(($s, $m)) {
+        font-size: 1.625rem;
+        padding: 0.875rem;
+      }
+    }
+  }
+}

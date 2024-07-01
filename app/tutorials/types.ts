@@ -8,6 +8,7 @@ export type PostItemType = {
 export type ItemType = {
   slug: string;
   fileFolder: string;
+  language?: string;
 };
 
 export type PostItemParam = {

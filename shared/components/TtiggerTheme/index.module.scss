@@ -1,0 +1,13 @@
+@import "@style";
+.theme {
+  padding: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border: 0.0625rem solid $gray1;
+  border-radius: 1.875rem;
+  .icon {
+    cursor: pointer;
+  }
+}
