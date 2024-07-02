@@ -8,6 +8,7 @@ import { Menu, MenuProps } from "antd";
 import dayCat from "@/public/images/day_cat.png";
 import nightCat from "@/public/images/night_cat.png";
 import languageIcon from "@/public/images/language.png";
+import languageLightIcon from "@/public/images/light_language.png";
 import menuKeys from "@/constants/menuKeys";
 import pageKeys from "@/constants/pageKey";
 import TutorialRouters from "@/app/tutorials/router";
@@ -18,7 +19,7 @@ import styles from "./index.module.scss";
 type MenuItem = Required<MenuProps>["items"][number];
 
 const Header: FC = () => {
-  const { theme, setLanguage, language } = globalStore();
+  const { theme, setLanguage } = globalStore();
   const getMenuItems = () => {
     const itemChildren: MenuItem[] =
       TutorialRouters?.map(item => ({
@@ -53,7 +54,7 @@ const Header: FC = () => {
         <Link href={`/${pageKeys.blog}`}>{menuKeys.blog}</Link>
         <Link href={`/${pageKeys.about}`}>{menuKeys.about}</Link>
         <Image
-          src={languageIcon}
+          src={theme === ThemeKeys.dark ? languageIcon : languageLightIcon}
           alt={menuKeys.FFTF}
           width={20}
           height={20}
