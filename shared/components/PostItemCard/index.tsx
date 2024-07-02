@@ -4,6 +4,8 @@ import React, { FC, memo } from "react";
 import { PostItemType } from "@/app/tutorials/types";
 import pageKeys from "@/constants/pageKey";
 
+import TutorialItem from "../TutorialItem";
+
 import styles from "./index.module.scss";
 
 const PostItemCard: FC<PostItemType> = item => {
@@ -12,10 +14,7 @@ const PostItemCard: FC<PostItemType> = item => {
       href={`/${pageKeys.tutorial}/${item?.path}`}
       className={styles.postItem}
     >
-      <div className={styles.title}>
-        <span className={styles.index}>{item?.index}</span>
-        <span>{item?.title}</span>
-      </div>
+      <TutorialItem {...item} />
       <div className={styles.desc}>{item?.desc}</div>
     </Link>
   );
