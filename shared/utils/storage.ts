@@ -1,12 +1,12 @@
 const storageTool = {
-  set(key, value) {
+  set(key: string, value: unknown) {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.error("localStorage设置数据时出错：", error);
     }
   },
-  get(key) {
+  get(key: string) {
     try {
       const value = localStorage.getItem(key);
       return value ? JSON.parse(value) : null;
@@ -15,7 +15,7 @@ const storageTool = {
       return null;
     }
   },
-  remove(key) {
+  remove(key: string) {
     try {
       localStorage.removeItem(key);
     } catch (error) {

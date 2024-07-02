@@ -1,5 +1,6 @@
-import PostsRouter from "./router";
 import PostItemCard from "@/shared/components/PostItemCard";
+
+import PostsRouter from "./router";
 
 export default function PostsPage() {
   return (
