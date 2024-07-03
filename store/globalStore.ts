@@ -1,25 +1,24 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import ThemeKeys from "@/constants/themeKeys";
 import storageKeys from "@/constants/storageKeys";
 import LanguageKeys from "@/constants/languageKeys";
 type GlobalStage = {
-  theme: ThemeKeys;
+  isDarkMode: boolean;
   language: string;
 };
 type GlobalAction = {
-  setTheme: (theme: ThemeKeys) => void;
+  setDarkMode: () => void;
   setLanguage: () => void;
 };
 const initialState: GlobalStage = {
-  theme: ThemeKeys.light,
+  isDarkMode: false,
   language: LanguageKeys.en_US,
 };
 const globalPersist = persist<GlobalStage & GlobalAction>(
   set => ({
     ...initialState,
-    setTheme: (theme: ThemeKeys) => set(() => ({ theme })),
+    setDarkMode: () => set(state => ({ isDarkMode: !state.isDarkMode })),
     setLanguage: () =>
       set(state => ({
         language:

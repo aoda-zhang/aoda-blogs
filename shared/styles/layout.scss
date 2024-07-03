@@ -1,4 +1,12 @@
 @import "@style";
+
+:root {
+  // Global css variables
+  --border-color: #{$border-color};
+  --bg-color: #{$bg-color};
+  --text-color: #{$text-color};
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,19 +18,13 @@
   }
 }
 body {
-  font-size: 16px;
-  @include medias(($s, $m)) {
-    font-size: 14px;
-  }
-  .dark {
-    color: $gray1;
-    background-color: $gray7;
-  }
-  .light {
-    color: $gray7;
-    background-color: $steelBlue1;
-  }
-  .layout {
+  #fullStackLayout {
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    @include medias(($s, $m)) {
+      font-size: 14px;
+    }
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
       "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
       "Helvetica Neue", sans-serif;
@@ -36,5 +38,10 @@ body {
         padding: 3% 20%;
       }
     }
+  }
+  .fullStackLayout_dark {
+    --border-color: #{$border-color-dark};
+    --bg-color: #{$bg-color-dark};
+    --text-color: #{$text-color-dark};
   }
 }

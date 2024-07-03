@@ -3,20 +3,22 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Footer from "@/shared/components/Footer";
 import Header from "@/shared/components/Header";
-import "@/shared/styles/global.scss";
+import "@/shared/styles/layout.scss";
 import globalStore from "@/store/globalStore";
-import ThemeKeys from "@/constants/themeKeys";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { theme } = globalStore();
+  const isDarkMode = globalStore(state => state?.isDarkMode);
   return (
     <html lang="en">
       <body>
-        <div className={`layout ${ThemeKeys?.[theme]}`}>
+        <div
+          id="fullStackLayout"
+          className={`${isDarkMode && "fullStackLayout_dark"}`}
+        >
           <Header />
           <div className="content">
             {children}

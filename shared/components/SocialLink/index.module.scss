@@ -1,0 +1,14 @@
+@import "@style";
+.social {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  .icon {
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    &:hover {
+      filter: none;
+    }
+  }
+}

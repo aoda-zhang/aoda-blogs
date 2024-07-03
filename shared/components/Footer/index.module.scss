@@ -2,11 +2,13 @@
 .footer {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  border-top: 0.0625rem solid $gray1;
+  justify-content: space-between;
+  border-top: 0.0625rem solid var(--border-color);
   padding: 1rem;
   color: $gray3;
   @include medias(($l, $xl)) {
     padding: 1rem 10%;
+  }
+  .right {
   }
 }
