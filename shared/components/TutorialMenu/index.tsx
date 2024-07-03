@@ -2,6 +2,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React, { FC, memo } from "react";
 import Link from "next/link";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 import menuKeys from "@/constants/menuKeys";
 import tutorialRouters from "@/app/tutorials/router";
@@ -25,17 +26,18 @@ const TutorialMenu: FC = () => {
     <>
       <div onMouseEnter={expandMenu} className={styles.title}>
         {menuKeys.fullStackGuide}
+        <KeyboardArrowDown />
       </div>
       <Menu
         anchorEl={anchorEl}
         elevation={0}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "center",
+          horizontal: "left",
         }}
         transformOrigin={{
           vertical: "top",
-          horizontal: "center",
+          horizontal: "left",
         }}
         open={open}
         onClose={handleClose}

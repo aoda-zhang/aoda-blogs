@@ -1,0 +1,8 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  p {
+    line-height: 2;
+  }
+}
