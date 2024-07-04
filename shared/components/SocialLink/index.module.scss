@@ -2,8 +2,9 @@
 .social {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
   .icon {
+    width: 3.125rem;
+    height: 1.875rem;
     cursor: pointer;
     filter: grayscale(100%);
     transition: filter 0.3s ease;

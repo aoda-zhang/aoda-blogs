@@ -2,13 +2,14 @@ import React, { FC, memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import github from "@/public/images/github.png";
-import wechat from "@/public/images/wechat.png";
-import twiter from "@/public/images/x.png";
-import email from "@/public/images/email.png";
-import linkin from "@/public/images/link.png";
+import wechat from "@/public/images/wechat.svg";
+import twiter from "@/public/images/x.svg";
+import email from "@/public/images/email.svg";
+import linkin from "@/public/images/link.svg";
+import github from "@/public/images/github.svg";
 
 import styles from "./index.module.scss";
+
 const SocialLink: FC = () => {
   return (
     <div className={styles.social}>

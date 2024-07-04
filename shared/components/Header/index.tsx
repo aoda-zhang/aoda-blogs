@@ -11,8 +11,8 @@ import languageLightIcon from "@/public/images/light_language.png";
 import menuKeys from "@/constants/menuKeys";
 import pageKeys from "@/constants/pageKey";
 import globalStore from "@/store/globalStore";
-import dayTheme from "@/public/images/day.png";
-import lightTheme from "@/public/images/night.png";
+import dayTheme from "@/public/images/sun.svg";
+import lightTheme from "@/public/images/moon.svg";
 
 import TutorialMenu from "../TutorialMenu";
 
