@@ -1,13 +1,17 @@
 @import "@style";
+
 .social {
   display: flex;
   align-items: center;
+  margin-left: -0.75rem;
+
   .icon {
     width: 3.125rem;
     height: 1.875rem;
     cursor: pointer;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
+
     &:hover {
       filter: none;
     }

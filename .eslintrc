@@ -5,7 +5,7 @@
     "next",
     "next/core-web-vitals"
   ],
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": ["@typescript-eslint", "import", "stylelint-order"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
     "import/order": [
@@ -21,6 +21,7 @@
         ],
         "newlines-between": "always"
       }
-    ]
+    ],
+    "order/order": ["custom-properties", "declarations"]
   }
 }

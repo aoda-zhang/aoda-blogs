@@ -5,8 +5,8 @@ import globalStore from "@/store/globalStore";
 import LanguageKeys from "@/constants/languageKeys";
 
 import styles from "./home/index.module.scss";
-import TitlePost from "./home/title.mdx";
-import TitlePostZH from "./home/title.zh_CN.mdx";
+import TitlePost from "./home/docs/title.mdx";
+import TitlePostZH from "./home/docs/title.zh_CN.mdx";
 const Home: FC = () => {
   const language = globalStore(state => state.language);
   return (

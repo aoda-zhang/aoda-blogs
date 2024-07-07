@@ -47,6 +47,8 @@
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
     "eslint-plugin-simple-import-sort": "^12.1.0",
+    "stylelint": "^16.6.1",
+    "stylelint-order": "^6.0.4",
     "typescript": "^5"
   }
 }

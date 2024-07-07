@@ -3,16 +3,17 @@ import React, { FC, memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classnames from "classnames";
+import Menu from "@mui/icons-material/Menu";
+import Drawer from "@mui/material/Drawer";
 
-import dayCat from "@/public/images/day_cat.png";
-import nightCat from "@/public/images/night_cat.png";
-import languageIcon from "@/public/images/language.png";
-import languageLightIcon from "@/public/images/light_language.png";
-import menuKeys from "@/constants/menuKeys";
-import pageKeys from "@/constants/pageKey";
-import globalStore from "@/store/globalStore";
-import dayTheme from "@/public/images/sun.svg";
 import lightTheme from "@/public/images/moon.svg";
+import dayTheme from "@/public/images/sun.svg";
+import globalStore from "@/store/globalStore";
+import pageKeys from "@/constants/pageKey";
+import menuKeys from "@/constants/menuKeys";
+import languageLightIcon from "@/public/images/light_language.png";
+import languageIcon from "@/public/images/language.png";
+import me from "@/public/images/me.png";
 
 import TutorialMenu from "../TutorialMenu";
 
@@ -20,20 +21,14 @@ import styles from "./index.module.scss";
 
 const Header: FC = () => {
   const { isDarkMode, setLanguage, setDarkMode } = globalStore();
-  return (
-    <div className={styles.header}>
-      <div className={classnames([styles.left, styles.center])}>
-        <Link href={"/"}>
-          <Image
-            src={isDarkMode ? dayCat : nightCat}
-            alt={menuKeys.FFTF}
-            width={30}
-            height={30}
-          />
-        </Link>
+  const [open, setOpen] = React.useState(false);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
+  };
+  const RightMenu = () => {
+    return (
+      <>
         <TutorialMenu />
-      </div>
-      <div className={classnames([styles.right, styles.center])}>
         <Link href={`/${pageKeys.blog}`}>{menuKeys.blog}</Link>
         <Link href={`/${pageKeys.about}`}>{menuKeys.about}</Link>
         <Image
@@ -51,7 +46,33 @@ const Header: FC = () => {
           alt={""}
           onClick={setDarkMode}
         />
+      </>
+    );
+  };
+
+  return (
+    <div className={styles.header}>
+      <div className={classnames([styles.left, styles.center])}>
+        <Link href={"/"} className={styles.avatar}>
+          <Image
+            src={me}
+            alt={menuKeys.FFTF}
+            width={30}
+            height={30}
+          />
+          <span>{"Aoda's blog"}</span>
+        </Link>
+
+        <Menu className={styles.mobileShow} onClick={toggleDrawer(true)} />
       </div>
+      <div className={classnames([styles.right, styles.center])}>
+        <RightMenu />
+      </div>
+      <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
+        <div className={styles.drawMenu}>
+          <RightMenu />
+        </div>
+      </Drawer>
     </div>
   );
 };

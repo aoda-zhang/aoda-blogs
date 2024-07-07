@@ -1,5 +1,4 @@
 import React, { FC, memo } from "react";
-import Link from "next/link";
 
 import SocialLink from "../SocialLink";
 
@@ -9,7 +8,7 @@ const Footer: FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.left}>
-        {`Copyright © ${new Date().getFullYear()} | All rights reserved.`}
+        {`Copyright © ${new Date().getFullYear()} by Aoda. | All rights reserved.`}
       </div>
       <div className={styles.right}>
         <SocialLink />

@@ -1,4 +1,5 @@
 @import "@style";
+
 .header {
   display: flex;
   align-items: center;
@@ -9,28 +10,42 @@
   top: 0;
   color: $gray3;
   backdrop-filter: blur(0.625rem);
+
   @include medias(($l, $xl)) {
     padding: 1rem 10%;
   }
+
   .center {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
-    :global(.ant-menu) {
-      width: 12.5rem;
-      font-size: 1.125rem;
-      border: none;
-      background: none;
-      a {
-        color: $gray3;
-        &:hover {
-          text-decoration: none;
-        }
+  }
+
+  .left {
+    flex: 1;
+
+    .avatar {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: var(--text-color);
+    }
+
+    .mobileShow {
+      display: none;
+
+      @include medias($s) {
+        display: block;
       }
     }
   }
+
   .right {
+    @include medias($s) {
+      display: none;
+    }
+
     .icon {
       cursor: pointer;
       transition: transform 0.5s ease-in-out;
@@ -47,4 +62,17 @@
       gap: 1rem;
     }
   }
+}
+
+.drawMenu {
+  @include medias($s) {
+    width: 10.375rem;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.25rem;
+  }
+
 }

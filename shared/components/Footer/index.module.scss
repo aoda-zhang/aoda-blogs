@@ -9,6 +9,9 @@
   @include medias(($l, $xl)) {
     padding: 1rem 10%;
   }
-  .right {
+
+  @include medias($s) {
+    flex-direction: column-reverse;
+    gap: 0.625rem;
   }
 }
