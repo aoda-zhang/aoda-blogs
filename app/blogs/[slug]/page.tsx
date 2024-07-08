@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   return getServerMDXContant(blogPath);
 }
 
-export default async function PostItemPage(params: PostItemParam) {
+export default function PostItemPage(params: PostItemParam) {
   const { slug } = params?.params;
   return <MDXContainer slug={slug} fileFolder={blogPath} />;
 }

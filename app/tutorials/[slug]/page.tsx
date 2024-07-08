@@ -10,6 +10,5 @@ export async function generateStaticParams() {
 }
 
 export default async function PostItemPage(params: PostItemParam) {
-  const { slug } = params?.params;
-  return <MDXContainer slug={slug} fileFolder={tutorialPath} />;
+  return <MDXContainer {...params?.params} fileFolder={tutorialPath} />;
 }

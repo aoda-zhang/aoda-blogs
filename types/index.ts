@@ -28,6 +28,8 @@ export type PostItemType = {
   desc: string;
   path: string;
   index?: number;
+  tags: string[];
+  date: string;
 };
 
 export type ItemType = {
