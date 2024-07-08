@@ -1,13 +1,13 @@
 "use client";
 import { useMemo } from "react";
 
-import PostItemCard from "@/shared/components/PostItemCard";
 import globalStore from "@/store/globalStore";
 import LanguageKeys from "@/constants/languageKeys";
 
-import tutorialRouters from "./router";
+import tutorialRouters from "@/docs/tutorials/router";
+import TutorialCard from "./components/TutorialCard";
 
-export default function PostsPage() {
+export default function TutorialHome() {
   const language = globalStore(state => state?.language);
   const getTutorialRouters = useMemo(() => {
     return tutorialRouters?.map(item => ({
@@ -21,7 +21,7 @@ export default function PostsPage() {
   return (
     <div>
       {getTutorialRouters?.map((post, index) => (
-        <PostItemCard {...post} key={post?.title} index={index} />
+        <TutorialCard {...post} key={post?.title} index={index} />
       ))}
     </div>
   );

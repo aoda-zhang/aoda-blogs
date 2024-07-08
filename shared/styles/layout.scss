@@ -4,54 +4,79 @@
   // Global css variables
   --border-color: #{$border-color};
   --bg-color: #{$bg-color};
-  --text-color: #{$text-color};
+  --primary-text-color: #{$primary-text-color};
+  --sub-text-color: #{$sub-text-color};
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   line-height: 1.2;
+  margin: 0;
+  padding: 0;
 
   a {
+    color: currentcolor;
     text-decoration: none;
-    color: currentColor;
   }
 }
 
 body {
   #fullStackLayout {
-    font-size: 16px;
-    color: var(--text-color);
     background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    display: flex;
+    flex-direction: column;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    font-size: 16px;
+    min-height: 100vh;
 
     @include medias(($s, $m)) {
       font-size: 14px;
     }
 
-    font-family: "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    .headerBox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(0.625rem);
+      border-bottom: 0.0625rem solid var(--border-color);
+      color: $gray6;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
 
-    .content {
+      @include medias(($xl)) {
+        padding: 1rem 10%;
+      }
+    }
+
+    .contentBox {
       flex: 1;
       padding: 1.375rem;
 
-      @include medias(($l, $xl)) {
+      @include medias($xl) {
         box-sizing: border-box;
         padding: 3% 20%;
+      }
+    }
+
+    .footerBox {
+      align-items: center;
+      border-top: 0.0625rem solid var(--border-color);
+      color: $gray6;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+
+      @include medias(($xl)) {
+        padding: 1rem 10%;
+      }
+
+      @include medias($s) {
+        flex-direction: column-reverse;
+        gap: 0.625rem;
       }
     }
   }
@@ -59,6 +84,7 @@ body {
   .fullStackLayout_dark {
     --border-color: #{$border-color-dark};
     --bg-color: #{$bg-color-dark};
-    --text-color: #{$text-color-dark};
+    --primary-text-color: #{$primary-text-color-dark};
+    --sub-text-color: #{$sub-text-color-dark};
   }
 }

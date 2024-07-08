@@ -1,6 +1,6 @@
 import React, { FC, memo } from "react";
 
-import AboutPost from "./docs/index.mdx";
+import AboutPost from "@/docs/about/index.mdx";
 import styles from "./index.module.scss";
 const About: FC = () => {
   return (

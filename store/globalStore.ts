@@ -13,7 +13,10 @@ type GlobalAction = {
 };
 const initialState: GlobalStage = {
   isDarkMode: false,
-  language: LanguageKeys.en_US,
+  language:
+    navigator.language === LanguageKeys.zh_CN
+      ? LanguageKeys?.zh_CN
+      : LanguageKeys.en_US,
 };
 const globalPersist = persist<GlobalStage & GlobalAction>(
   set => ({

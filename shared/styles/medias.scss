@@ -1,4 +1,4 @@
-// 响应式方法
+// Responseive design
 
 // 1：定义4种不同类型的设备尺寸
 $s: 375px;
@@ -10,22 +10,24 @@ $xl: 1280px;
 @mixin medias($width-list) {
   @each $width in $width-list {
     @if $width == $s {
-      // $s: 375px 手机端逻辑
+      // $s: 375px Only For Mobile
       @media only screen and (max-width: ($m - 1px)) {
         @content;
       }
     } @else if $width == $m {
-      // $m: 768px; ipad逻辑
+      // $m: 768px Only For iPad ;
+
       @media only screen and (min-width: $m) and (max-width: ($l - 1px)) {
         @content;
       }
     } @else if $width == $l {
-      // $l: 1024px; desktop 桌面端逻辑
+      // $l: 1024px Only For Desktop;
+
       @media only screen and (min-width: $l) and (max-width: ($xl - 1px)) {
         @content;
       }
     } @else {
-      // $s: 375px 手机端逻辑
+      // $xl: 375px Only For Brower
       @media only screen and (min-width: $xl) {
         @content;
       }

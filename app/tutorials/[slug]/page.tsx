@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import pageKeys from "@/constants/pageKey";
-import PostContainer from "@/shared/components/PostContainer";
+import MDXContainer from "@/shared/components/MDXContainer";
 
 import { PostItemParam } from "../types";
 
@@ -18,5 +18,5 @@ export async function generateStaticParams() {
 
 export default async function PostItemPage(params: PostItemParam) {
   const { slug } = params?.params;
-  return <PostContainer slug={slug} fileFolder={tutorialPath} />;
+  return <MDXContainer slug={slug} fileFolder={tutorialPath} />;
 }

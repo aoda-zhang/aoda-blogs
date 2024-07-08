@@ -1,10 +1,20 @@
 @import "./color.scss";
+
 .center {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
+
 @mixin column {
   display: flex;
   flex-direction: column;
 }
+
+// message
+$success: $green3;
+$info: $blue4;
+$warning: $yellow6;
+$danger: $red7;
+
+$primary-color: $orange6;

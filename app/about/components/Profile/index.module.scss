@@ -1,0 +1,32 @@
+@import "@style";
+
+.profile {
+  align-items: center;
+  display: flex;
+  gap: 6.5rem;
+
+  @include medias($s) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .left {
+    height: 40%;
+    width: 40%;
+
+    @include medias($xl) {
+      height: 30%;
+      width: 30%;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    @include medias($s) {
+      width: auto;
+    }
+  }
+}

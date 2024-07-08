@@ -15,9 +15,8 @@ import languageLightIcon from "@/public/images/light_language.png";
 import languageIcon from "@/public/images/language.png";
 import me from "@/public/images/me.png";
 
-import TutorialMenu from "../TutorialMenu";
-
 import styles from "./index.module.scss";
+import TutorialMenu from "@/app/tutorials/components/TutorialMenu";
 
 const Header: FC = () => {
   const { isDarkMode, setLanguage, setDarkMode } = globalStore();
@@ -29,8 +28,12 @@ const Header: FC = () => {
     return (
       <>
         <TutorialMenu />
-        <Link href={`/${pageKeys.blog}`}>{menuKeys.blog}</Link>
-        <Link href={`/${pageKeys.about}`}>{menuKeys.about}</Link>
+        <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
+          {menuKeys.blog}
+        </Link>
+        <Link href={`/${pageKeys.about}`} className={styles.menuItem}>
+          {menuKeys.about}
+        </Link>
         <Image
           src={isDarkMode ? languageIcon : languageLightIcon}
           alt={menuKeys.FFTF}
@@ -51,15 +54,10 @@ const Header: FC = () => {
   };
 
   return (
-    <div className={styles.header}>
+    <>
       <div className={classnames([styles.left, styles.center])}>
         <Link href={"/"} className={styles.avatar}>
-          <Image
-            src={me}
-            alt={menuKeys.FFTF}
-            width={30}
-            height={30}
-          />
+          <Image src={me} alt={menuKeys.FFTF} width={30} height={30} />
           <span>{"Aoda's blog"}</span>
         </Link>
 
@@ -69,11 +67,11 @@ const Header: FC = () => {
         <RightMenu />
       </div>
       <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
-        <div className={styles.drawMenu}>
+        <div className={styles.drawMenu} onClick={toggleDrawer(false)}>
           <RightMenu />
         </div>
       </Drawer>
-    </div>
+    </>
   );
 };
 export default memo(Header);

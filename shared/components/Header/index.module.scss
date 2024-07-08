@@ -1,78 +1,65 @@
 @import "@style";
 
-.header {
-  display: flex;
+.center {
   align-items: center;
+  display: flex;
+  gap: 2.5rem;
   justify-content: space-between;
-  border-bottom: 0.0625rem solid var(--border-color);
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  color: $gray3;
-  backdrop-filter: blur(0.625rem);
+}
 
-  @include medias(($l, $xl)) {
-    padding: 1rem 10%;
-  }
+.left {
+  flex: 1;
 
-  .center {
-    display: flex;
+  .avatar {
     align-items: center;
-    justify-content: space-between;
-    gap: 2.5rem;
+    color: var(--primary-text-color);
+    display: flex;
+    gap: 1.25rem;
   }
 
-  .left {
-    flex: 1;
+  .mobileShow {
+    display: none;
 
-    .avatar {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: var(--text-color);
-    }
-
-    .mobileShow {
-      display: none;
-
-      @include medias($s) {
-        display: block;
-      }
-    }
-  }
-
-  .right {
     @include medias($s) {
-      display: none;
+      display: block;
     }
+  }
+}
 
-    .icon {
-      cursor: pointer;
-      transition: transform 0.5s ease-in-out;
-    }
+.right {
+  @include medias($s) {
+    display: none;
+  }
 
-    .icon:hover {
-      transform: rotate(30deg);
-    }
+  .icon {
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
 
-    .theme {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
+  .icon:hover {
+    transform: rotate(30deg);
+  }
+
+  .theme {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .menuItem:hover {
+    color: $primary-color;
   }
 }
 
 .drawMenu {
   @include medias($s) {
-    width: 10.375rem;
-    margin-top: 2.5rem;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     gap: 2.25rem;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    width: 10.375rem;
   }
-
 }

@@ -19,12 +19,18 @@ export default function RootLayout({
           id="fullStackLayout"
           className={`${isDarkMode && "fullStackLayout_dark"}`}
         >
-          <Header />
-          <div className="content">
+          <div className="headerBox">
+            <Header />
+          </div>
+
+          <div className="contentBox">
             {children}
             <SpeedInsights />
           </div>
-          <Footer />
+
+          <div className="footerBox">
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

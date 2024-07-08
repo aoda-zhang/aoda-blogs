@@ -1,0 +1,26 @@
+@import "@style";
+
+.blog {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include medias($s) {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .card {
+    width: 33%;
+
+    @include medias($s) {
+      width: 100%;
+    }
+
+    @include medias($m) {
+      width: 50%;
+    }
+  }
+}

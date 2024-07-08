@@ -1,0 +1,12 @@
+@import "@style";
+
+.title {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 0.375rem;
+
+  &:hover {
+    color: $primary-color;
+  }
+}

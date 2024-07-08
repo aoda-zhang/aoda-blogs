@@ -21,7 +21,6 @@
         ],
         "newlines-between": "always"
       }
-    ],
-    "order/order": ["custom-properties", "declarations"]
+    ]
   }
 }

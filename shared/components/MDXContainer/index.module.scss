@@ -1,0 +1,9 @@
+@import "@style";
+.MDXContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  p {
+    color: var(--sub-text-color);
+  }
+}
