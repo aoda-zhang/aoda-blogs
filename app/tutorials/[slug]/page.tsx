@@ -3,8 +3,7 @@ import path from "path";
 
 import pageKeys from "@/constants/pageKey";
 import MDXContainer from "@/shared/components/MDXContainer";
-
-import { PostItemParam } from "../types";
+import { PostItemParam } from "@/types";
 
 const tutorialPath = `/app/${pageKeys.tutorial}/${pageKeys.docs}`;
 
