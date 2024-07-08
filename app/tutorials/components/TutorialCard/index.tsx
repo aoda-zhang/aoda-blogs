@@ -2,10 +2,10 @@ import Link from "next/link";
 import React, { FC, memo } from "react";
 
 import pageKeys from "@/constants/pageKey";
-
-import styles from "./index.module.scss";
 import { PostItemType } from "@/types";
 import TutorialItem from "@/app/tutorials/components/TutorialItem";
+
+import styles from "./index.module.scss";
 
 const TutorialCard: FC<PostItemType> = item => {
   return (

@@ -1,6 +1,8 @@
 import React, { FC, memo } from "react";
-import styles from "./index.module.scss";
+
 import { PostItemType } from "@/types";
+
+import styles from "./index.module.scss";
 const TutorialItem: FC<PostItemType> = (item: PostItemType) => {
   return (
     <div className={styles.title}>

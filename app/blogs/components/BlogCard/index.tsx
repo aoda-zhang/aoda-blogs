@@ -1,7 +1,9 @@
 import React, { FC, memo } from "react";
-import styles from "./index.module.scss";
 import Image from "next/image";
+
 import { PostItemType } from "@/types";
+
+import styles from "./index.module.scss";
 const BlogCard: FC<PostItemType> = item => {
   return (
     <div className={styles.blogCard}>

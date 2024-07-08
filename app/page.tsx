@@ -3,10 +3,10 @@ import React, { FC, memo } from "react";
 
 import globalStore from "@/store/globalStore";
 import LanguageKeys from "@/constants/languageKeys";
-
-import styles from "./home/index.module.scss";
 import TitlePost from "@/docs/home/title.mdx";
 import TitlePostZH from "@/docs/home/title.zh_CN.mdx";
+
+import styles from "./home/index.module.scss";
 const Home: FC = () => {
   const language = globalStore(state => state.language);
   return (

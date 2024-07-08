@@ -3,8 +3,8 @@ import { useMemo } from "react";
 
 import globalStore from "@/store/globalStore";
 import LanguageKeys from "@/constants/languageKeys";
-
 import tutorialRouters from "@/docs/tutorials/router";
+
 import TutorialCard from "./components/TutorialCard";
 
 export default function TutorialHome() {

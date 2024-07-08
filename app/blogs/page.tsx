@@ -1,12 +1,14 @@
 "use client";
 import React, { FC, memo, useMemo } from "react";
-import styles from "./index.module.scss";
-import blogRouters from "@/docs/blogs/router";
-import BlogCard from "./components/BlogCard";
 import Link from "next/link";
+
+import blogRouters from "@/docs/blogs/router";
 import pageKeys from "@/constants/pageKey";
 import LanguageKeys from "@/constants/languageKeys";
 import globalStore from "@/store/globalStore";
+
+import BlogCard from "./components/BlogCard";
+import styles from "./index.module.scss";
 const Blog: FC = () => {
   const language = globalStore(state => state?.language);
   const getBlogRouters = useMemo(() => {
@@ -21,7 +23,11 @@ const Blog: FC = () => {
   return (
     <div className={styles.blog}>
       {getBlogRouters?.map(item => (
-        <Link href={`/${pageKeys.blog}/${item?.path}`} className={styles.card}>
+        <Link
+          href={`/${pageKeys.blog}/${item?.path}`}
+          className={styles.card}
+          key={item?.path}
+        >
           <BlogCard {...item} />
         </Link>
       ))}

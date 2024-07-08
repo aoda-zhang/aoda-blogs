@@ -1,8 +1,10 @@
 import React, { FC, memo } from "react";
 import Image from "next/image";
+
 import me from "@/public/images/me.png";
-import styles from "./index.module.scss";
 import Summary from "@/docs/about/summary.mdx";
+
+import styles from "./index.module.scss";
 const Profile: FC = () => {
   return (
     <div className={styles.profile}>

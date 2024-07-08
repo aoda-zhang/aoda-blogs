@@ -8,9 +8,9 @@ import menuKeys from "@/constants/menuKeys";
 import pageKeys from "@/constants/pageKey";
 
 import TutorialItem from "../TutorialItem";
+import tutorialRouters from "../../../../docs/tutorials/router";
 
 import styles from "./index.module.scss";
-import tutorialRouters from "../../../../docs/tutorials/router";
 
 const TutorialMenu: FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
