@@ -24,10 +24,7 @@ const Blog: FC = () => {
     <div className={styles.blog}>
       {getBlogRouters?.map(item => (
         <Link
-          href={{
-            pathname: `/${pageKeys.blog}/${item?.path}`,
-            query: item,
-          }}
+          href={`/${pageKeys.blog}/${item?.path}`}
           className={styles.card}
           key={item?.path}
         >
