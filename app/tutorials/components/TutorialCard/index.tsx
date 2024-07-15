@@ -10,7 +10,7 @@ import styles from "./index.module.scss";
 const TutorialCard: FC<PostItemType> = item => {
   return (
     <Link
-      href={`/${pageKeys.tutorial}/${item?.path}`}
+      href={`/${pageKeys.tutorial}/${item?.postPath}`}
       className={styles.postItem}
     >
       <TutorialItem {...item} />
