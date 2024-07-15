@@ -1,3 +1,5 @@
+import LanguageKeys from "@/constants/languageKeys";
+
 export type MDRenderType = {
   datas: MDFileItemType[] | [];
 };
@@ -26,18 +28,18 @@ export type PostItemType = {
   coverPath: string;
   title: string;
   desc: string;
-  path: string;
+  postPath: string;
   index?: number;
   tags: string[];
   date: string;
 };
 
 export type ItemType = {
-  slug: string;
+  postPath: string;
   fileFolder: string;
-  language?: string;
+  locale?: keyof LanguageKeys;
 };
 
 export type PostItemParam = {
-  params: ItemType;
+  params: {slug:[keyof LanguageKeys,string]};
 };

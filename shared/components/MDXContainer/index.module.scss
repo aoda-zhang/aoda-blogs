@@ -3,8 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  padding: 1.375rem;
-
   .mdxHeader {
     .title {
       padding: 1.875rem 0 1rem 0;
@@ -29,7 +27,7 @@
       }
     }
     .coverPath {
-      width: 90%;
+      width: 100%;
       height: auto;
       margin: 1.875rem 0;
     }

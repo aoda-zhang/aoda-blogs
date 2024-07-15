@@ -6,7 +6,7 @@ const getServerMDXContant = (postPath: string) => {
   // Only read mdx files
   const mdxFiles = filenames.filter(name => name.endsWith(".mdx"));
   return mdxFiles?.map(name => ({
-    slug: name.replace(/\.mdx$/, ""),
+    postPath: name.replace(/\.mdx$/, ""),
   }));
 };
 export default getServerMDXContant;

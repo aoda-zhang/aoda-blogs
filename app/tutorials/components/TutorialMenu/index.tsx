@@ -6,6 +6,7 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 import menuKeys from "@/constants/menuKeys";
 import pageKeys from "@/constants/pageKey";
+import globalStore from "@/store/globalStore";
 
 import TutorialItem from "../TutorialItem";
 import tutorialRouters from "../../../../docs/tutorials/router";
@@ -13,6 +14,7 @@ import tutorialRouters from "../../../../docs/tutorials/router";
 import styles from "./index.module.scss";
 
 const TutorialMenu: FC = () => {
+  const { locale } = globalStore();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const expandMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -25,7 +27,7 @@ const TutorialMenu: FC = () => {
   return (
     <>
       <div onMouseEnter={expandMenu} className={styles.title}>
-        {menuKeys.fullStackGuide}
+        {menuKeys?.[locale]?.fullStackGuide}
         <KeyboardArrowDown />
       </div>
       <Menu
@@ -42,9 +44,9 @@ const TutorialMenu: FC = () => {
         open={open}
         onClose={handleClose}
       >
-        {tutorialRouters?.map(item => (
+        {tutorialRouters?.[locale]?.map(item => (
           <MenuItem onClick={handleClose} key={item?.title}>
-            <Link href={`/${pageKeys.tutorial}/${item?.path}`}>
+            <Link href={`/${pageKeys.tutorial}/${item?.postPath}`}>
               <TutorialItem {...item} />
             </Link>
           </MenuItem>

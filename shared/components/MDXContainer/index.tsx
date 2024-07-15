@@ -10,6 +10,7 @@ import { ItemType, PostItemType } from "@/types";
 // U can choose the theme that u prefered
 import "highlight.js/styles/github-dark.min.css";
 import pageKeys from "@/constants/pageKey";
+import LanguageKeys from "@/constants/languageKeys";
 
 import styles from "./index.module.scss";
 
@@ -19,25 +20,26 @@ const options = {
     rehypePlugins: [rehypeHighlight],
   },
 };
-const getMdxContent = (slug: string, fileFolder: string) => {
+const getMdxContent =  (postPath: string, fileFolder: string) => {
   const postsDirectory = path.join(process.cwd(), fileFolder);
-  const filePath = path.join(postsDirectory, `${slug}.mdx`);
+  const filePath = path.join(postsDirectory, `${postPath}.mdx`);
   return fs.readFileSync(filePath, "utf-8");
 };
-const getCurrentPostOptions = async (slug: string, fileFolder: string) => {
+const getCurrentPostOptions = async (postPath: string, fileFolder: string,locale:LanguageKeys) => {
   let currentPostLists: PostItemType[] = [];
+  
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.blog}`) {
-    currentPostLists = (await import("@/docs/blogs/router")).default;
+    currentPostLists = (await import("@/docs/blogs/router")).default?.[locale]
   }
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.tutorial}`) {
-    currentPostLists = (await import("@/docs/tutorials/router")).default;
+    currentPostLists = (await import("@/docs/tutorials/router")).default?.[locale]
   }
-  return currentPostLists?.find(item => item?.path === slug);
+  return currentPostLists?.find(item => item?.postPath === postPath);
 };
 
 export default async function MDXContainer(params: ItemType) {
-  const { slug, fileFolder } = params;
-  const currentPost = await getCurrentPostOptions(slug, fileFolder);
+  const { postPath, fileFolder,locale } = params;
+  const currentPost = await getCurrentPostOptions(postPath, fileFolder,locale);
   return (
     <div className={styles.MDXContainer}>
       <div className={styles.mdxHeader}>
@@ -64,7 +66,7 @@ export default async function MDXContainer(params: ItemType) {
         )}
       </div>
       <div className={styles.mdxContent}>
-        <MDXRemote source={getMdxContent(slug, fileFolder)} options={options} />
+        <MDXRemote source={getMdxContent(postPath, fileFolder)} options={options} />
       </div>
     </div>
   );

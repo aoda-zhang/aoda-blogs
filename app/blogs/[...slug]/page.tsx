@@ -10,6 +10,6 @@ export async function generateStaticParams() {
 }
 
 export default function PostItemPage(params: PostItemParam) {
-  const { slug } = params?.params;
-  return <MDXContainer slug={slug} fileFolder={blogPath} />;
+  const [locale,postPath] = params?.params?.slug
+  return <MDXContainer postPath={postPath} locale={locale} fileFolder={blogPath}  />;
 }

@@ -1,32 +1,22 @@
 "use client";
-import React, { FC, memo, useMemo } from "react";
+import React, { FC, memo } from "react";
 import Link from "next/link";
 
 import blogRouters from "@/docs/blogs/router";
 import pageKeys from "@/constants/pageKey";
-import LanguageKeys from "@/constants/languageKeys";
 import globalStore from "@/store/globalStore";
 
 import BlogCard from "./components/BlogCard";
 import styles from "./index.module.scss";
 const Blog: FC = () => {
-  const language = globalStore(state => state?.language);
-  const getBlogRouters = useMemo(() => {
-    return blogRouters?.map(item => ({
-      ...(item ?? {}),
-      path:
-        language === LanguageKeys.zh_CN
-          ? `${item?.path}.${LanguageKeys.zh_CN}`
-          : item?.path,
-    }));
-  }, [language]);
+  const locale = globalStore(state => state?.locale);
   return (
     <div className={styles.blog}>
-      {getBlogRouters?.map(item => (
+      {blogRouters?.[locale]?.map(item => (
         <Link
-          href={`/${pageKeys.blog}/${item?.path}`}
+          href={`/${pageKeys.blog}/${locale}/${item?.postPath}`}
           className={styles.card}
-          key={item?.path}
+          key={item?.postPath}
         >
           <BlogCard {...item} />
         </Link>

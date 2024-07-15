@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, memo } from "react";
+import React, { FC, memo} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classnames from "classnames";
@@ -12,14 +12,21 @@ import globalStore from "@/store/globalStore";
 import pageKeys from "@/constants/pageKey";
 import menuKeys from "@/constants/menuKeys";
 import languageLightIcon from "@/public/images/light_language.png";
-import languageIcon from "@/public/images/language.png";
 import me from "@/public/images/me.png";
+import TutorialMenu from "@/app/tutorials/components/TutorialMenu";
+import LanguageKeys from "@/constants/languageKeys";
+import languageIcon from "@/public/images/language.png";
 
 import styles from "./index.module.scss";
-import TutorialMenu from "@/app/tutorials/components/TutorialMenu";
+
 
 const Header: FC = () => {
-  const { isDarkMode, setLanguage, setDarkMode } = globalStore();
+  const {
+    isDarkMode,
+    setLocale,
+    setDarkMode,
+    locale = LanguageKeys.en,
+  } = globalStore();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -29,18 +36,18 @@ const Header: FC = () => {
       <>
         <TutorialMenu />
         <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
-          {menuKeys.blog}
+          {menuKeys?.[locale]?.blog}
         </Link>
         <Link href={`/${pageKeys.about}`} className={styles.menuItem}>
-          {menuKeys.about}
+          {menuKeys?.[locale]?.about}
         </Link>
         <Image
           src={isDarkMode ? languageIcon : languageLightIcon}
-          alt={menuKeys.FFTF}
+          alt={""}
           width={20}
           height={20}
           className={styles.icon}
-          onClick={() => setLanguage()}
+          onClick={() => setLocale()}
         />
         <Image
           className={styles.icon}
@@ -57,7 +64,7 @@ const Header: FC = () => {
     <>
       <div className={classnames([styles.left, styles.center])}>
         <Link href={"/"} className={styles.avatar}>
-          <Image src={me} alt={menuKeys.FFTF} width={30} height={30} />
+          <Image src={me} alt={""} width={30} height={30} />
           <span>{"Aoda's blog"}</span>
         </Link>
 

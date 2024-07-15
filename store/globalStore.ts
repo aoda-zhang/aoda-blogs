@@ -5,26 +5,26 @@ import storageKeys from "@/constants/storageKeys";
 import LanguageKeys from "@/constants/languageKeys";
 type GlobalStage = {
   isDarkMode: boolean;
-  language: string;
+  locale: LanguageKeys;
 };
 type GlobalAction = {
   setDarkMode: () => void;
-  setLanguage: () => void;
+  setLocale: () => void;
 };
 const initialState: GlobalStage = {
   isDarkMode: false,
-  language: LanguageKeys.en_US,
+  locale: LanguageKeys.en,
 };
 const globalPersist = persist<GlobalStage & GlobalAction>(
   set => ({
     ...initialState,
     setDarkMode: () => set(state => ({ isDarkMode: !state.isDarkMode })),
-    setLanguage: () =>
+    setLocale: () =>
       set(state => ({
-        language:
-          state.language === LanguageKeys.en_US
-            ? LanguageKeys.zh_CN
-            : LanguageKeys.en_US,
+        locale:
+          state.locale === LanguageKeys.en
+            ? LanguageKeys.zh
+            : LanguageKeys.en,
       })),
   }),
   {

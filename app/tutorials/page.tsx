@@ -1,28 +1,22 @@
 "use client";
-import { useMemo } from "react";
+import { useTranslation } from "next-i18next";
+import { memo } from "react";
 
 import globalStore from "@/store/globalStore";
-import LanguageKeys from "@/constants/languageKeys";
 import tutorialRouters from "@/docs/tutorials/router";
 
 import TutorialCard from "./components/TutorialCard";
 
-export default function TutorialHome() {
-  const language = globalStore(state => state?.language);
-  const getTutorialRouters = useMemo(() => {
-    return tutorialRouters?.map(item => ({
-      ...(item ?? {}),
-      path:
-        language === LanguageKeys.zh_CN
-          ? `${item?.path}.${LanguageKeys.zh_CN}`
-          : item?.path,
-    }));
-  }, [language]);
+const TutorialHome=()=> {
+  const locale = globalStore(state => state?.locale);
+  const { t } = useTranslation("common");
   return (
     <div>
-      {getTutorialRouters?.map((post, index) => (
+      {tutorialRouters?.[locale]?.map((post, index) => (
         <TutorialCard {...post} key={post?.title} index={index} />
       ))}
+      <div>{t("common.header.about")}</div>
     </div>
   );
 }
+export default memo(TutorialHome)

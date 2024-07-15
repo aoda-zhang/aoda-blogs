@@ -12,10 +12,12 @@
     padding-bottom: 1.25rem;
   }
 
-  &:hover {
-    border: 0.125rem solid $primary-color;
-    border-radius: 0.625rem;
-    transform: translateY(-10px);
+  @include medias(($l, $xl)) {
+    &:hover {
+      border: 0.125rem solid $primary-color;
+      border-radius: 0.625rem;
+      transform: translateY(-10px);
+    }
   }
 
   .conver {
