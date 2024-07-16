@@ -5,8 +5,8 @@
   flex-direction: column;
   gap: 1.125rem;
   padding: 0.625rem;
-  transition: transform 0.3s ease;
-
+  border: 0.0625rem solid var(--second-border-color);
+  border-radius: 0.875rem;
   @include medias($s) {
     border-bottom: 0.0625rem solid var(--border-color);
     padding-bottom: 1.25rem;
@@ -14,9 +14,10 @@
 
   @include medias(($l, $xl)) {
     &:hover {
-      border: 0.125rem solid $primary-color;
-      border-radius: 0.625rem;
-      transform: translateY(-10px);
+      box-shadow:
+        0 1px 2px -2px rgba(0, 0, 0, 0.16),
+        0 3px 6px 0 rgba(0, 0, 0, 0.12),
+        0 5px 12px 4px rgba(0, 0, 0, 0.09);
     }
   }
 

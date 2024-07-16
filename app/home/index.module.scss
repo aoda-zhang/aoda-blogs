@@ -29,5 +29,14 @@
         padding: 0.875rem;
       }
     }
+    .start {
+      cursor: pointer;
+      margin: 3.75rem auto;
+      background-color: var(--primary-text-color);
+      color: var(--theme-color);
+      padding: 1rem;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+    }
   }
 }

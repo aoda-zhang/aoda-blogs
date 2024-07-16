@@ -31,5 +31,8 @@
   "i18n-ally.keystyle": "flat",
   "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }

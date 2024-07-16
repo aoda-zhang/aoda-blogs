@@ -2,10 +2,12 @@
 
 :root {
   // Global css variables
-  --border-color: #{$border-color};
+  --border-color: #{$primary-border-color};
+  --second-border-color: #{$second-border-color};
   --bg-color: #{$bg-color};
   --primary-text-color: #{$primary-text-color};
   --sub-text-color: #{$sub-text-color};
+  --theme-color: #{$theme-color};
 }
 
 * {
@@ -26,8 +28,18 @@ body {
     color: var(--primary-text-color);
     display: flex;
     flex-direction: column;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
       sans-serif;
     font-size: 16px;
     min-height: 100vh;
@@ -81,9 +93,11 @@ body {
   }
 
   .fullStackLayout_dark {
-    --border-color: #{$border-color-dark};
+    --border-color: #{$primary-border-color-dark};
+    --second-border-color: #{$second-border-color-dark};
     --bg-color: #{$bg-color-dark};
     --primary-text-color: #{$primary-text-color-dark};
     --sub-text-color: #{$sub-text-color-dark};
+    --theme-color: #{$theme-color-dark};
   }
 }

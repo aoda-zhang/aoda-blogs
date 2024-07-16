@@ -1,13 +1,25 @@
 @import "./color.scss";
 
 // Variable for light mode !
-$border-color: $gray4;
-$bg-color: $white;
+$primary-border-color: $gray4;
+$second-border-color: $gray2;
+
 $primary-text-color: $gray9;
 $sub-text-color: $gray8;
 
+$bg-color: $white;
+
+$theme-color: $white;
+
+// -------------------------------------- //
+
 // Variable for dark mode !
-$border-color-dark: $gray7;
-$bg-color-dark: $gray9;
+$primary-border-color-dark: $gray7;
+$second-border-color-dark: $gray6;
+
 $primary-text-color-dark: $gray2;
 $sub-text-color-dark: $gray5;
+
+$bg-color-dark: $dark;
+
+$theme-color-dark: $dark;
