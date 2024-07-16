@@ -37,9 +37,9 @@ export type PostItemType = {
 export type ItemType = {
   postPath: string;
   fileFolder: string;
-  locale?: keyof LanguageKeys;
+  locale: LanguageKeys;
 };
 
 export type PostItemParam = {
-  params: {slug:[keyof LanguageKeys,string]};
+  params: {slug:[LanguageKeys,string]};
 };
