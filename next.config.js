@@ -1,6 +1,6 @@
 import withMDX from "@next/mdx";
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx","json"],
   reactStrictMode: true,
   images: {
     domains: [],
