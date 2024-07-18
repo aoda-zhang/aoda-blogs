@@ -1,0 +1,36 @@
+@import "@style";
+
+.widget {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    @include medias($s) {
+        flex-direction: column;
+    }
+    .postItem {
+        width: calc(32%);
+        @include medias($s) {
+            width: 100%;
+        }
+        border: 0.0625rem solid var(--second-border-color);
+        border-radius: 1.125rem;
+        box-shadow: 0 0 0.0625rem 0 rgb(47 47 47 / 26%);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        justify-content: center;
+        padding: 1.25rem;
+
+        .desc {
+            -webkit-box-orient: vertical;
+            color: $gray6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+    }
+}

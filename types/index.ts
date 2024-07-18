@@ -25,7 +25,7 @@ export enum RoutePath {
 }
 
 export type PostItemType = {
-  coverPath: string;
+  coverPath?: string;
   title: string;
   desc: string;
   postPath: string;

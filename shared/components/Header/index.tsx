@@ -13,7 +13,7 @@ import pageKeys from "@/constants/pageKey";
 import menuKeys from "@/constants/menuKeys";
 import languageLightIcon from "@/public/images/light_language.png";
 import me from "@/public/images/me.png";
-import TutorialMenu from "@/app/tutorials/components/TutorialMenu";
+import TutorialMenu from "@/shared/components/TutorialMenu";
 import LanguageKeys from "@/constants/languageKeys";
 import languageIcon from "@/public/images/language.png";
 

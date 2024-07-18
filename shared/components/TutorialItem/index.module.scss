@@ -5,17 +5,18 @@
   display: flex;
   font-size: 1.25rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: 0.8rem;
 
   .index {
     align-items: center;
-    background-color: $blue4;
+    background-color: $blue2;
     border-radius: 50%;
-    color: $blue8;
+    color: $blue6;
     display: flex;
     font-size: 1rem;
     height: 2rem;
     justify-content: center;
     width: 2rem;
+    line-height: 2rem;
   }
 }

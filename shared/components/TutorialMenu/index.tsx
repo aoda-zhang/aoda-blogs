@@ -9,7 +9,7 @@ import pageKeys from "@/constants/pageKey";
 import globalStore from "@/store/globalStore";
 
 import TutorialItem from "../TutorialItem";
-import tutorialRouters from "../../../../docs/tutorials/router";
+import tutorialRouters from "../../../docs/tutorials/router";
 
 import styles from "./index.module.scss";
 
