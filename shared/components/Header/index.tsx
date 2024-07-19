@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, memo} from "react";
+import React, { FC, memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classnames from "classnames";
@@ -18,7 +18,6 @@ import LanguageKeys from "@/constants/languageKeys";
 import languageIcon from "@/public/images/language.png";
 
 import styles from "./index.module.scss";
-
 
 const Header: FC = () => {
   const {
@@ -74,7 +73,7 @@ const Header: FC = () => {
         <RightMenu />
       </div>
       <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
-        <div className={styles.drawMenu} onClick={toggleDrawer(false)}>
+        <div className={styles.drawMenu}>
           <RightMenu />
         </div>
       </Drawer>

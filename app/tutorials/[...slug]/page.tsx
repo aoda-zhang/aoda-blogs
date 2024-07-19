@@ -11,5 +11,7 @@ export async function generateStaticParams() {
 
 export default async function PostItemPage(params: PostItemParam) {
   const [locale,postPath] = params?.params?.slug
+  console.log('locale,postPathlocale,postPath',locale,postPath);
+  
   return <MDXContainer  locale={locale} postPath={postPath} fileFolder={tutorialPath} />;
 }

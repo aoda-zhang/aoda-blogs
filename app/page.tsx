@@ -6,8 +6,7 @@ import LanguageKeys from "@/constants/languageKeys";
 import TitlePost from "@/docs/home/index.mdx";
 import TitlePostZH from "@/docs/home/index.zh_CN.mdx";
 
-import styles from "./home/index.module.scss";
-
+import styles from "./home.module.scss";
 
 const Home: FC = () => {
   const locale = globalStore(state => state.locale);

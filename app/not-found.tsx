@@ -10,7 +10,7 @@ const NotFound = () => {
     loop: true
   };
   const { View } = useLottie(options);
-  return <div className="center">{View}</div>;
+  return <div className="centerBox mw">{View}</div>;
 };
 
 export default memo(NotFound);

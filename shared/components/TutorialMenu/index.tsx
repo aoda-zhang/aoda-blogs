@@ -3,6 +3,7 @@ import MenuItem from "@mui/material/MenuItem";
 import React, { FC, memo } from "react";
 import Link from "next/link";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import { Divider } from "@mui/material";
 
 import menuKeys from "@/constants/menuKeys";
 import pageKeys from "@/constants/pageKey";
@@ -14,7 +15,7 @@ import tutorialRouters from "../../../docs/tutorials/router";
 import styles from "./index.module.scss";
 
 const TutorialMenu: FC = () => {
-  const { locale } = globalStore();
+  const locale = globalStore(state => state?.locale);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const expandMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -26,7 +27,7 @@ const TutorialMenu: FC = () => {
 
   return (
     <>
-      <div onMouseEnter={expandMenu} className={styles.title}>
+      <div onMouseEnter={expandMenu} className={styles.tutorialTitle}>
         {menuKeys?.[locale]?.fullStackGuide}
         <KeyboardArrowDown />
       </div>
@@ -44,10 +45,11 @@ const TutorialMenu: FC = () => {
         open={open}
         onClose={handleClose}
       >
-        {tutorialRouters?.[locale]?.map(item => (
-          <MenuItem onClick={handleClose} key={item?.title}>
-            <Link href={`/${pageKeys.tutorial}/${item?.postPath}`}>
-              <TutorialItem {...item} />
+        {tutorialRouters?.[locale]?.map((item, i) => (
+          <MenuItem onClick={handleClose} key={i}>
+            <Link href={`/${pageKeys.tutorial}/${locale}/${item?.postPath}`}>
+              <TutorialItem {...item} index={i + 1} />
+              <Divider className={styles.line} />
             </Link>
           </MenuItem>
         ))}

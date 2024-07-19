@@ -25,7 +25,7 @@
     "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "i18n-ally.localesPaths": ["public/i18n"],
   "i18n-ally.keystyle": "flat",

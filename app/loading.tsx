@@ -10,7 +10,7 @@ const Loading = () => {
     loop: true
   };
   const { View } = useLottie(options);
-  return <div className="center small">{View}</div>;
+  return <div className="centerBox sw">{View}</div>;
 };
 
 export default memo(Loading);

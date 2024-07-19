@@ -1,13 +1,26 @@
 @import "./color.scss";
 @import "./medias.scss";
 
-.small {
-  max-width: 50%;
+// small width
+.sw {
+  max-width: 30%;
 }
-.center {
+.mw {
+  max-width: 60%;
+}
+.bw {
+  max-width: 100%;
+}
+.centerBox {
   align-items: center;
   display: flex;
   justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 @mixin column {

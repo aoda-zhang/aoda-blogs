@@ -5,7 +5,7 @@ import { PostItemType } from "@/types";
 import styles from "./index.module.scss";
 const TutorialItem: FC<PostItemType> = (item: PostItemType) => {
   return (
-    <div className={styles.title}>
+    <div className={styles.tutorialItem}>
       <span className={styles.index}>{item?.index}</span>
       <span>{item?.title}</span>
     </div>
