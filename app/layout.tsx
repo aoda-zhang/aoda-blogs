@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, memo, useEffect } from "react";
+import React, { FC, memo } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import classNames from "classnames";
