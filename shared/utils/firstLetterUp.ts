@@ -1,4 +1,4 @@
-const capitalizeFirstLetter = (value: string) => {
+const firstLetterUp = (value: string) => {
   if (typeof value === "string") {
     return value?.charAt(0)?.toUpperCase() + value.slice(1);
   } else {
@@ -6,4 +6,4 @@ const capitalizeFirstLetter = (value: string) => {
     return "";
   }
 };
-export default capitalizeFirstLetter;
+export default firstLetterUp;

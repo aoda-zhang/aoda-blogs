@@ -11,6 +11,9 @@ import { ItemType, PostItemType } from "@/types";
 import "highlight.js/styles/github-dark.min.css";
 import pageKeys from "@/constants/pageKey";
 import LanguageKeys from "@/constants/languageKeys";
+import firstLetterUp from "@/shared/utils/firstLetterUp";
+
+import EmptyContent from "../Empty";
 
 import styles from "./index.module.scss";
 
@@ -20,26 +23,34 @@ const options = {
     rehypePlugins: [rehypeHighlight],
   },
 };
-const getMdxContent =  (postPath: string, fileFolder: string) => {
+const getMdxContent = (postPath: string, fileFolder: string) => {
   const postsDirectory = path.join(process.cwd(), fileFolder);
   const filePath = path.join(postsDirectory, `${postPath}.mdx`);
   return fs.readFileSync(filePath, "utf-8");
 };
-const getCurrentPostOptions = async (postPath: string, fileFolder: string,locale:LanguageKeys) => {
+const getCurrentPostOptions = async (
+  postPath: string,
+  fileFolder: string,
+  locale: LanguageKeys,
+) => {
   let currentPostLists: PostItemType[] = [];
-  
+
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.blog}`) {
-    currentPostLists = (await import("@/docs/blogs/router")).default?.[locale]
+    currentPostLists = (await import("@/docs/blogs/router")).default?.[locale];
   }
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.tutorial}`) {
-    currentPostLists = (await import("@/docs/tutorials/router")).default?.[locale]
+    currentPostLists = (await import("@/docs/tutorials/router")).default?.[
+      locale
+    ];
   }
   return currentPostLists?.find(item => item?.postPath === postPath);
 };
 
 export default async function MDXContainer(params: ItemType) {
-  const { postPath, fileFolder,locale } = params;
-  const currentPost = await getCurrentPostOptions(postPath, fileFolder,locale);
+  const { postPath, fileFolder, locale } = params;
+  const currentPost = await getCurrentPostOptions(postPath, fileFolder, locale);
+  const isContentEmpty = Boolean(getMdxContent(postPath, fileFolder));
+
   return (
     <div className={styles.MDXContainer}>
       <div className={styles.mdxHeader}>
@@ -51,7 +62,7 @@ export default async function MDXContainer(params: ItemType) {
           </span>
           <span className={styles.tags}>
             {currentPost?.tags?.map(item => (
-              <span key={item}>{`#${item}`}</span>
+              <span key={item}>{`#${firstLetterUp(item)}`}</span>
             ))}
           </span>
         </p>
@@ -66,7 +77,14 @@ export default async function MDXContainer(params: ItemType) {
         )}
       </div>
       <div className={styles.mdxContent}>
-        <MDXRemote source={getMdxContent(postPath, fileFolder)} options={options} />
+        {isContentEmpty ? (
+          <MDXRemote
+            source={getMdxContent(postPath, fileFolder)}
+            options={options}
+          />
+        ) : (
+          <EmptyContent />
+        )}
       </div>
     </div>
   );

@@ -4,21 +4,35 @@ import LanguageKeys from "@/constants/languageKeys";
 const tutorialRouters: Record<LanguageKeys, PostItemType[]> = {
   [LanguageKeys.en]: [
     {
-      title: "develop responsive pages",
-      desc: "Most of the time, our pages only run on one device, web, mobile or desktop, but what do we do if we want to run on two devices at the same time? Responsiveness means writing code to match different platforms",
+      title: "Preparation",
+      desc: "Man,are you ready to start your full-stuck learning ? let us from here  to open your full-stack life!",
       postPath: "1",
-      tags: ["SCSS", "React"],
+      tags: ["git", "node", "CRA"],
       date: "2023-10-12",
-    }
+    },
+    {
+      title: "Engineering Front-End",
+      desc: "Man,are you ready to start your full-stuck learning ? let us from here  to open your full-stack life!",
+      postPath: "2",
+      tags: ["react", "husky"],
+      date: "2023-10-12",
+    },
   ],
   [LanguageKeys.zh]: [
     {
-      title: "develop responsive pages",
-      desc: "Most of the time, our pages only run on one device, web, mobile or desktop, but what do we do if we want to run on two devices at the same time? Responsiveness means writing code to match different platforms",
+      title: "准备工作",
+      desc: "伙计,准备好开始你的全栈学习之旅了吗?让我们从这里开始,开启你的全栈生涯!",
       postPath: "1",
-      tags: ["SCSS", "React"],
+      tags: ["git", "node", "CRA"],
       date: "2023-10-12",
-    }
+    },
+    {
+      title: "前端工程化",
+      desc: "伙计,准备好开始你的全栈学习之旅了吗?让我们从这里开始,开启你的全栈生涯!",
+      postPath: "2",
+      tags: ["git", "node", "CRA"],
+      date: "2023-10-12",
+    },
   ],
 };
 export default tutorialRouters;
