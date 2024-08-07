@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   return getServerMDXContant(tutorialPath);
 }
 
-export default async function PostItemPage(params: PostItemParam) {
+export default function PostItemPage(params: PostItemParam) {
   const [locale, postPath] = params?.params?.slug;
   return (
     <MDXContainer
