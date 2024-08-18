@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "dev": "next dev --port 3002",
     "build": "next build",
@@ -49,5 +53,6 @@
     "eslint-config-next": "14.0.4",
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@9.7.0"
 }
