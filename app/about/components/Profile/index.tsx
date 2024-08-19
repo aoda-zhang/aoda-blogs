@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { FC, memo } from "react";
 import Image from "next/image";
 
@@ -10,12 +10,12 @@ import LanguageKeys from "@/constants/languageKeys";
 
 import styles from "./index.module.scss";
 const Profile: FC = () => {
-  const locale=globalStore(state=>state.locale)
+  const locale = globalStore(state => state.locale);
   return (
     <div className={styles.profile}>
       <Image src={me} alt={""} className={styles.left} />
       <div className={styles.right}>
-        {locale===LanguageKeys.zh?<SummaryZH/>:<Summary />}      
+        {locale === LanguageKeys.zh ? <SummaryZH /> : <Summary />}
       </div>
     </div>
   );
