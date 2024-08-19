@@ -12,6 +12,7 @@ import styles from "./index.module.scss";
 
 const TutorialWidget = () => {
   const locale = globalStore(state => state.locale);
+
   const TutorialCard = (item: PostItemType) => {
     return (
       <Link
@@ -27,7 +28,7 @@ const TutorialWidget = () => {
   };
   return (
     <div className={styles.widget}>
-      {tutorialRouters?.[locale]?.map((post, index) => (
+      {tutorialRouters?.map((post, index) => (
         <TutorialCard key={index} {...post} index={index + 1} />
       ))}
     </div>

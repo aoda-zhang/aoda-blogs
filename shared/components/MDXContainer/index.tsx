@@ -23,33 +23,32 @@ const options = {
     rehypePlugins: [rehypeHighlight],
   },
 };
-const getMdxContent = (postPath: string, fileFolder: string) => {
-  const postsDirectory = path.join(process.cwd(), fileFolder);
-  const filePath = path.join(postsDirectory, `${postPath}.mdx`);
-  return fs.readFileSync(filePath, "utf-8");
-};
-const getCurrentPostOptions = async (
+const getMdxContent = (
   postPath: string,
   fileFolder: string,
-  locale: LanguageKeys,
+  locale: string,
 ) => {
+  const matchedPostPath = locale === "en" ? postPath : `${postPath}.${locale}`;
+  const postsDirectory = path.join(process.cwd(), fileFolder);
+  const filePath = path.join(postsDirectory, `${matchedPostPath}.mdx`);
+  return fs.readFileSync(filePath, "utf-8");
+};
+const getCurrentPostOptions = async (postPath: string, fileFolder: string) => {
   let currentPostLists: PostItemType[] = [];
 
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.blog}`) {
-    currentPostLists = (await import("@/docs/blogs/router")).default?.[locale];
+    currentPostLists = (await import("@/docs/blogs/router")).default;
   }
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.tutorial}`) {
-    currentPostLists = (await import("@/docs/tutorials/router")).default?.[
-      locale
-    ];
+    currentPostLists = (await import("@/docs/tutorials/router")).default;
   }
   return currentPostLists?.find(item => item?.postPath === postPath);
 };
 
 export default async function MDXContainer(params: ItemType) {
   const { postPath, fileFolder, locale } = params;
-  const currentPost = await getCurrentPostOptions(postPath, fileFolder, locale);
-  const isContentEmpty = Boolean(getMdxContent(postPath, fileFolder));
+  const currentPost = await getCurrentPostOptions(postPath, fileFolder);
+  const isContentEmpty = Boolean(getMdxContent(postPath, fileFolder, locale));
 
   return (
     <div className={styles.MDXContainer}>
@@ -79,7 +78,7 @@ export default async function MDXContainer(params: ItemType) {
       <div className={styles.mdxContent}>
         {isContentEmpty ? (
           <MDXRemote
-            source={getMdxContent(postPath, fileFolder)}
+            source={getMdxContent(postPath, fileFolder, locale)}
             options={options}
           />
         ) : (

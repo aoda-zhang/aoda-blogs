@@ -45,7 +45,7 @@ const TutorialMenu: FC = () => {
         open={open}
         onClose={handleClose}
       >
-        {tutorialRouters?.[locale]?.map((item, i) => (
+        {tutorialRouters?.map((item, i) => (
           <MenuItem onClick={handleClose} key={i}>
             <Link href={`/${pageKeys.tutorial}/${locale}/${item?.postPath}`}>
               <TutorialItem {...item} index={i + 1} />
