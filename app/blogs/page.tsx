@@ -12,7 +12,7 @@ const Blog: FC = () => {
   const locale = globalStore(state => state?.locale);
   return (
     <div className={styles.blog}>
-      {blogRouters?.[locale]?.map(item => (
+      {blogRouters?.map(item => (
         <Link
           href={`/${pageKeys.blog}/${locale}/${item?.postPath}`}
           className={styles.card}
