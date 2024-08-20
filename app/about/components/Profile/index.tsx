@@ -2,7 +2,7 @@
 import React, { FC, memo } from "react";
 import Image from "next/image";
 
-import me from "@/public/images/me.png";
+import me from "@/public/images/me.webp";
 import Summary from "@/docs/about/summary.mdx";
 import SummaryZH from "@/docs/about/summary.zh.mdx";
 import globalStore from "@/store/globalStore";
