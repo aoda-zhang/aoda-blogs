@@ -39,12 +39,18 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    h2 {
+      font-size: xx-large;
+      padding: 1.25rem 0;
+    }
 
     p {
+      font-size: 1.1rem;
       color: var(--sub-text-color);
       line-height: 2.8;
     }
     ul li {
+      font-size: 1.1rem;
       line-height: 2.8;
     }
   }
