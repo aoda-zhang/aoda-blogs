@@ -25,7 +25,7 @@ const SocialLink: FC = () => {
       <Link href="mailto:aodazhang666@gmail.com">
         <Image className={styles.icon} src={email} alt={""} />
       </Link>
-      <Link href="https://raw.githubusercontent.com/aoda-zhang/aoda-blogs/master/public/images/wechatLink.JPG">
+      <Link href="https://s1.locimg.com/2024/08/27/7bd44939bafc2.JPG">
         <Image className={styles.icon} src={wechat} alt={""} />
       </Link>
     </div>

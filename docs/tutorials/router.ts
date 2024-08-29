@@ -9,11 +9,11 @@ const tutorialRouters: PostItemType[] = [
     date: "2023-10-12",
   },
   {
-    title: "Engineering Front-End",
-    desc: "Man,are you ready to start your full-stuck learning ? let us from here  to open your full-stack life!",
+    title: "Getting Started",
+    desc: "Install your project, and make it stronger and stronger!",
     postPath: "2",
-    tags: ["react", "husky"],
-    date: "2023-10-12",
+    tags: ["react", "husky", "pnpm", "biome", "vite"],
+    date: "2023-11-02",
   },
 ];
 export default tutorialRouters;
