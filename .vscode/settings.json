@@ -6,13 +6,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.singleQuote": false,
   "prettier.trailingComma": "all",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html"
-  ],
   "prettier.arrowParens": "avoid",
   "prettier.printWidth": 80,
   "[typescript]": {
@@ -27,13 +20,8 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "i18n-ally.localesPaths": ["public/i18n"],
-  "i18n-ally.keystyle": "flat",
   "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"

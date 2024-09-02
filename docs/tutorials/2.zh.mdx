@@ -1,5 +1,5 @@
 ## 检查你的NodeJs
-首先运行这个命令,确保你已经在本地下载了NodeJs,这是最重要的第一步! <br/>
+首先,运行这两个命令,确保你已经在本地下载了NodeJs,这是最重要的第一步! <br/>
 ```zsh
 node -v
 ```
@@ -8,17 +8,203 @@ and
 npm -v
 ```
 ## 初始化一个新的react项目
-其次,运行这个命令来创建你牛逼的react项目.
+其次,运行这个命令来创建你的react项目,my-app 将会是你的项目名称
 ```zsh
 npx create-react-app my-app --template typescript
 ```
-我知道有人会说CRA已经过时了,我们应该使用CNA来初始化我们的react前端项目,但是,请打住!,
-我们想要的是一个react项目,我们又为何要去初始化一个nextjs的项目呢,更何况,如果你使用过nextjs,
-你就会发现,nextjs中存在很多和react不一致的开发习惯,以及一些破坏性的更改,那不是我们想要的,所以在我看来,CRA依然是
-最有用的创建react项目的方式.
+我知道有开发者会说 “reate-react-app已经过时了,我们应该使用creat-next-app来初始化我们的react前端项目,Nextjs会提供更好的性能,而且React官方也在推荐使用Nextjs” 但是,请打住!,
+我们想要的只是一个React单页面项目,我们并不关注SCR,SSR等话题,而且如果有过Nextjs开发经验的开发者应该知道Nextjs有优点,也存在很多缺点,对于一个单纯的React前端项目来说,我们没必要去初始化一个Nextjs的项目,那不是我们想要的,所以在我看来,CRA依然是
+最有用的创建SPA react项目的方式.<br/>
+关于此话题,你可以阅读此文章获得更多的想法 [Create React App (CRA) vs. Next.js](https://prismic.io/blog/create-react-app-cra-vs-nextjs#so-should-you-use-cra-or-nextjs)<br/>
+## 调整默认的文件夹或者文件
+到这一步,你已经成功的创建了你的react项目,干杯 🍻.
 
-## 迁移到pnpm
-## 格式化你的代码
-## 在提交代码时预检查
+不过,我们仍然需要移除或者添加一些文件夹或文件,这些都是基于真实项目的最佳实践,确保我们的项目能得到更好的维护.
+
+<b>1. 请移除以下文件</b>
+- node_modules
+- package-lock.json
+- src/App.css
+- src/App.test.tsx
+- src/index.css
+- src/logo.svg
+- src/reportWebVitals.ts
+- src/setupTests.ts
+
+<b>Check the file src/App.tsx and src/index.tsx,make sure those above removed files is NOT imported.</b><br/>
+
+<b>2. 移除这些library从package.json中的dependencies中</b>
+- @testing-library/jest-dom,
+- @testing-library/react
+- @testing-library/user-event
+- web-vitals
+- @types/jest
+
+最终,你的package.json会是这样的
+```json
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^16.18.106",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+```
+<b>3. 在src中添加shared文件夹</b>
+
+shared文件夹可以存放一些多次被复用的公共组件,工具方法等,这也是我们优化项目代码非常重要的一步.<br/>
+最终,我们的项目文件结构会是这样
+```json
+├─ README.md
+├─ .gitignore
+├─ package.json
+├─ tsconfig.json
+├─ src
+│  ├─ index.tsx
+│  ├─ App.tsx
+│  └─ react-app-env.d.ts
+└─ public
+   ├─ favicon.ico
+   ├─ index.html
+   ├─ manifest.json
+   ├─ robots.txt
+```
+
+## 迁移到pnpm ( 可选的,推荐的 )
+到这一步,我们已经完成了你的react项目文件的调整,接下来我们只需要Install package.json中所需的library,
+运行package.json中的script即可.
+
+通常对于javaScript项目,无论是React还是NodeJs,我们都会选择npm来做为我们的包管理器,这也是我作为开发人员首次
+接触的包管理器,但是随着时间的推移,我发现npm每次install时都非常缓慢,尤其是在大型项目中,这让我非常抓狂,后来很多一段时间
+我使用了yarn,但之后yarn的更新变得非常频繁,yarn的第四个版本出现时我必须做出很多更改,这不是我想要的,我开始了解从社区中寻找更优的
+包管理器,没错,就是<b>pnpm</b>,它install时非常非常非常迅速,而且由于它的一些优化策略,node_modules也变得很小,而且它的命令和npm完全兼容,
+目前我已经使用它一年多了,我很庆幸我能及时的选择了它,如果你还在使用npm或者yarn,我强烈推荐你是时候尝试下pnpm了,当然出于项目维护稳定或者
+其他原因,你也可以继续使用 npm 或者 yarn.
+
+迁移包管理器到pnpm只需要采用 npm 全局安装pnpm即可.
+```sh
+npm install -g pnpm
+```
+
+关于pnpm的更多细节,你可以从[这里](https://pnpm.io)获得了解.
+
+## 安装library
+不论我们的语言是JavaScript还是Java,在开发中我们都会大量使用已存在的第三方library,以JavaScript为语言的项目,依赖的第三方library都会在根目录的
+package.json中记录,通常安装这些library只需要选择一个包管理器,运行初始化命令,便可自动集成这些library.
+
+打开你的终端,运行以下命令即可.
+
+```sh
+pnpm i
+```
+or
+```sh
+npm i
+```
+or
+```sh
+yarn
+```
+## 让你的代码更健壮!
+到这一步, 你已经可以成功的启动你的react项目了,但是这还不够!
+我们都知道在实际项目中,我们的代码通常都会由一个团队来共同迭代,为了让我们的项目得到更好的维护,通常我们都会制定一些共同需要遵守的”开发规则“,
+同时,每一个语言或者框架,都会有一些最基本的最佳实践,这些实践会让我们的代码更为健壮!
+
+那么,以JavaScript为语言的项目,如何实现上述目标呢.
+
+一些开发者可能会提到 Eslint + Prettier + StyleLint
+
+不不不,这不是最好的方法.
+
+我承认在过去很长时间里,我都采用了上述三个的组合来让我的代码更多健壮,但是每次当我接触新项目,我都需要花费很多时间来逐一集成这三个,这花费了我很多时间,
+也让我感觉很心累,我渴望能够拥有一个简单的方式,来让我集成上述三个,并且还会默认提供其他更多的最佳实践.
+
+有一天当我无意间在一篇技术博客里看到 <b>Biome</b> 时, 我感觉我发现了宝藏,这就是我一直想拥有的东西,Biome集成了 Eslint,Prettier,StyleLint还有其他的一些最佳实践,
+也提供了让我们从Eslint直接迁移到Biome的方法,我们唯一需要做的就是采用一个yaml config文件,便可将神奇的Biome集成到我们的项目了,于是,我认真查看了Biome的官方文档以及其他
+一些开发者的反馈之后,我坚定的使用了Biome, 放弃了Eslint.
+
+<b>1. 安装Biome</b>
+
+```zsh
+pnpm add --save-dev --save-exact @biomejs/biome
+```
+<b>2. 配置Biome</b>
+```json
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto"
+  },
+  "organizeImports": { "enabled": true },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    },
+    "ignore": ["./.vscode/*", "node_modules"]
+  }
+}
+```
+这些config都会开启默认的推荐规则,你也可以根据项目的需要调整上述config,<b>更多详情,请查看[Biome官网文档](https://biomejs.dev/zh-cn)</b>
+
+<b>3. 配置运行命令</b>
+
+打开你的根目录package.json,在src中添 biome:check 命令
+```zsh
+"biome:check": "biome check . --write --unsafe --files-ignore-unknown=true --no-errors-on-unmatched"
+```
+最终你的package.json中的script看起来会像这样
+```zsh
+  "scripts": {
+    "start": "react-scripts start",
+    "biome:check": "biome check . --write --unsafe --files-ignore-unknown=true --no-errors-on-unmatched",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+```
+
+<b>4. 安装VSCode插件</b>
+
+在你的VSCode插件扩展中搜索Biome并安装,并且按照说明在你的项目中进行设置即可.
+
+## 代码提交预检查
 ## 迁移到vite
 
