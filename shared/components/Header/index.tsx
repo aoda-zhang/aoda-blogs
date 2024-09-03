@@ -1,10 +1,11 @@
 "use client";
-import React, { FC, memo } from "react";
+import React, { FC, memo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classnames from "classnames";
 import Menu from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
+import { useTranslation } from "react-i18next";
 
 import lightTheme from "@/public/images/moon.svg";
 import dayTheme from "@/public/images/sun.svg";
@@ -26,7 +27,8 @@ const Header: FC = () => {
     setDarkMode,
     locale = LanguageKeys.en,
   } = globalStore();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const { i18n } = useTranslation();
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
@@ -46,7 +48,12 @@ const Header: FC = () => {
           width={20}
           height={20}
           className={styles.icon}
-          onClick={() => setLocale()}
+          onClick={() => {
+            i18n.changeLanguage(
+              locale === LanguageKeys.en ? LanguageKeys.zh : LanguageKeys.en,
+            );
+            setLocale;
+          }}
         />
         <Image
           className={styles.icon}
