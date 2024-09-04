@@ -66,7 +66,7 @@ body {
 
         .contentBox {
             flex: 1;
-            padding: 2rem;
+            padding: 1rem;
             @include medias($xl) {
                 box-sizing: border-box;
                 padding: 3% 6%;
