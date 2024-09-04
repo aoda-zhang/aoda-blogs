@@ -176,9 +176,42 @@ pnpm add --save-dev --save-exact @biomejs/biome
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "nursery": {
+        "recommended": true
+      },
     },
-    "ignore": ["./.vscode/*", "node_modules"]
+    "ignore": [
+      "./.vscode/*",
+      "node_modules"
+    ]
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "quoteStyle": "double",
+      "lineWidth": 120
+    }
+  },
+  "json": {
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "allowComments": true
+    }
+  },
+  "css": {
+    "parser": { "cssModules": true },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
   }
 }
 ```

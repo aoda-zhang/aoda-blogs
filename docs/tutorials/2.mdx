@@ -184,11 +184,45 @@ pnpm add --save-dev --save-exact @biomejs/biome
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "nursery": {
+        "recommended": true
+      },
     },
-    "ignore": ["./.vscode/*", "node_modules"]
+    "ignore": [
+      "./.vscode/*",
+      "node_modules"
+    ]
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "quoteStyle": "double",
+      "lineWidth": 120
+    }
+  },
+  "json": {
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "allowComments": true
+    }
+  },
+  "css": {
+    "parser": { "cssModules": true },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
   }
 }
+
 ```
 这些config都会开启默认的推荐规则,你也可以根据项目的需要调整上述config,<b>更多详情,请查看[Biome官网文档](https://biomejs.dev/zh-cn)</b>
 

@@ -9,7 +9,7 @@
 
   .index {
     align-items: center;
-    background-color: $blue3;
+    background-color: $blue2;
     border-radius: 50%;
     color: $blue6;
     display: flex;
@@ -17,5 +17,8 @@
     justify-content: center;
     line-height: 0.625rem;
     padding: 0.875rem;
+  }
+  .title {
+    font-size: 1.5rem;
   }
 }

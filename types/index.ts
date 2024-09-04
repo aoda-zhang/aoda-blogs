@@ -31,7 +31,6 @@ export type PostItemType = {
   postPath: string;
   index?: number;
   tags: string[];
-  date: string;
 };
 
 export type ItemType = {
@@ -41,5 +40,5 @@ export type ItemType = {
 };
 
 export type PostItemParam = {
-  params: {slug:[LanguageKeys,string]};
+  params: { slug: [LanguageKeys, string] };
 };

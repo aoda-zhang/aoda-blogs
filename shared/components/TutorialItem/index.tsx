@@ -7,7 +7,7 @@ const TutorialItem: FC<PostItemType> = (item: PostItemType) => {
   return (
     <div className={styles.tutorialItem}>
       <span className={styles.index}>{item?.index}</span>
-      <span>{item?.title}</span>
+      <span className={styles.title}>{item?.title}</span>
     </div>
   );
 };

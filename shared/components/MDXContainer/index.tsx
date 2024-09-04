@@ -4,13 +4,11 @@ import fs from "fs";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import Image from "next/image";
-import CalendarMonth from "@mui/icons-material/CalendarMonth";
 
 import { ItemType, PostItemType } from "@/types";
 // U can choose the theme that u prefered
-import "highlight.js/styles/github-dark.min.css";
+import "highlight.js/styles/stackoverflow-dark.min.css";
 import pageKeys from "@/constants/pageKey";
-import LanguageKeys from "@/constants/languageKeys";
 import firstLetterUp from "@/shared/utils/firstLetterUp";
 
 import EmptyContent from "../Empty";
@@ -55,10 +53,6 @@ export default async function MDXContainer(params: ItemType) {
       <div className={styles.mdxHeader}>
         <p className={styles.title}>{currentPost?.title}</p>
         <p className={styles.flag}>
-          <span className={styles.date}>
-            <CalendarMonth />
-            {currentPost?.date}
-          </span>
           <span className={styles.tags}>
             {currentPost?.tags?.map(item => (
               <span key={item}>{`#${firstLetterUp(item)}`}</span>

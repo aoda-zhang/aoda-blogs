@@ -5,7 +5,6 @@ import Image from "next/image";
 import classnames from "classnames";
 import Menu from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
-import { useTranslation } from "react-i18next";
 
 import lightTheme from "@/public/images/moon.svg";
 import dayTheme from "@/public/images/sun.svg";
@@ -28,7 +27,6 @@ const Header: FC = () => {
     locale = LanguageKeys.en,
   } = globalStore();
   const [open, setOpen] = useState(false);
-  const { i18n } = useTranslation();
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
@@ -36,9 +34,9 @@ const Header: FC = () => {
     return (
       <>
         <TutorialMenu />
-        <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
+        {/* <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
           {menuKeys?.[locale]?.blog}
-        </Link>
+        </Link> */}
         <Link href={`/${pageKeys.about}`} className={styles.menuItem}>
           {menuKeys?.[locale]?.about}
         </Link>
@@ -48,12 +46,7 @@ const Header: FC = () => {
           width={20}
           height={20}
           className={styles.icon}
-          onClick={() => {
-            i18n.changeLanguage(
-              locale === LanguageKeys.en ? LanguageKeys.zh : LanguageKeys.en,
-            );
-            setLocale;
-          }}
+          onClick={() => setLocale()}
         />
         <Image
           className={styles.icon}

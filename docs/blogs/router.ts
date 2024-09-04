@@ -7,7 +7,6 @@ const blogRouters: PostItemType[] = [
     postPath: "set_responsive_page_by_scss",
     coverPath: "/images/nature1.webp",
     tags: ["SCSS", "React"],
-    date: "2023-10-12",
   },
   {
     title: "How to use function in react class components ?",
@@ -15,7 +14,6 @@ const blogRouters: PostItemType[] = [
     postPath: "use_function_in_react_class_components",
     coverPath: "/images/nature2.webp",
     tags: ["SCSS", "React"],
-    date: "2023-10-12",
   },
 ];
 export default blogRouters;
