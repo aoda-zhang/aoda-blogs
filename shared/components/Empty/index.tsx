@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import empty from "@/public/images/empty.svg";
+import empty from "@/public/images/empty.png";
 
 import styles from "./index.module.scss";
 
