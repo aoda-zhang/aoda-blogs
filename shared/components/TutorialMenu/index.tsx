@@ -1,59 +1,45 @@
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import React, { FC, memo } from "react";
-import Link from "next/link";
+import React, { FC, memo, useState } from "react";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import { Divider } from "@mui/material";
+import { Modal } from "@mui/material";
 
 import menuKeys from "@/constants/menuKeys";
-import pageKeys from "@/constants/pageKey";
 import globalStore from "@/store/globalStore";
 
-import TutorialItem from "../TutorialItem";
-import tutorialRouters from "../../../docs/tutorials/router";
-
 import styles from "./index.module.scss";
+import TutorialItem from "../TutorialItem";
+import tutorialRouters from "@/docs/tutorials/router";
 
 const TutorialMenu: FC = () => {
   const locale = globalStore(state => state?.locale);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const expandMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
-      <div onMouseEnter={expandMenu} className={styles.tutorialTitle}>
+      <div
+        onMouseEnter={handleOpen}
+        onClick={handleOpen}
+        className={styles.tutorialTitle}
+      >
         {menuKeys?.[locale]?.fullStackGuide}
         <KeyboardArrowDown />
       </div>
-      <Menu
-        anchorEl={anchorEl}
-        elevation={0}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        open={open}
-        onClose={handleClose}
-      >
-        {tutorialRouters?.map((item, i) => (
-          <MenuItem onClick={handleClose} key={i}>
-            <Link href={`/${pageKeys.tutorial}/${locale}/${item?.postPath}`}>
-              <TutorialItem {...item} index={i + 1} />
-              <Divider className={styles.line} />
-            </Link>
-          </MenuItem>
-        ))}
-      </Menu>
+      <Modal open={open} onClose={handleClose}>
+        <div className={styles.toturailMenumodal}>
+          {tutorialRouters?.map((item, i) => (
+            <TutorialItem
+              onItemClick={handleClose}
+              isShowDesc={false}
+              locale={locale}
+              className={styles.menuItem}
+              key={item?.title}
+              {...item}
+              index={i + 1}
+            />
+          ))}
+        </div>
+      </Modal>
     </>
   );
 };

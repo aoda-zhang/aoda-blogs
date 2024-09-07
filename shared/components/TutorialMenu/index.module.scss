@@ -13,3 +13,21 @@
 .line {
   padding-top: 0.5rem;
 }
+
+.toturailMenumodal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  justify-content: space-between;
+  background-color: $light;
+  outline-color: aliceblue;
+  .menuItem {
+    width: 46%;
+  }
+}

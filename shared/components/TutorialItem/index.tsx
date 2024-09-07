@@ -3,12 +3,29 @@ import React, { FC, memo } from "react";
 import { PostItemType } from "@/types";
 
 import styles from "./index.module.scss";
-const TutorialItem: FC<PostItemType> = (item: PostItemType) => {
+import classNames from "classnames";
+import Link from "next/link";
+import pageKeys from "@/constants/pageKey";
+import LanguageKeys from "@/constants/languageKeys";
+type Props = PostItemType & {
+  className?: string;
+  locale: LanguageKeys;
+  isShowDesc?: boolean;
+  onItemClick?: () => void;
+};
+const TutorialItem: FC<Props> = ({ isShowDesc = true, ...item }) => {
   return (
-    <div className={styles.tutorialItem}>
-      <span className={styles.index}>{item?.index}</span>
-      <span className={styles.title}>{item?.title}</span>
-    </div>
+    <Link
+      onClick={item?.onItemClick}
+      className={classNames([styles.tutorialItem, item?.className])}
+      href={`/${pageKeys.tutorial}/${item?.locale}/${item?.postPath}`}
+    >
+      <p className={styles.title}>
+        <span className={styles.index}>{item?.index}</span>
+        <span className={styles.text}>{item?.title}</span>
+      </p>
+      {isShowDesc && <p className={styles.desc}>{item?.desc}</p>}
+    </Link>
   );
 };
 export default memo(TutorialItem);
