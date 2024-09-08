@@ -1,3 +1,4 @@
+"use client";
 import React, { FC, memo, useState } from "react";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { Drawer, Modal } from "@mui/material";

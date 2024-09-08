@@ -1,12 +1,13 @@
-import { memo, useEffect, useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 
 const useIsMobile = () => {
   // Default mobile size
   const breakPoint = 768;
-  const [isMobile, setIsMobile] = useState(window.innerWidth < breakPoint);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < breakPoint);
+      setIsMobile(window?.innerWidth < breakPoint);
     };
     window.addEventListener("resize", handleResize);
     return () => {
