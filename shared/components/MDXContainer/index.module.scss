@@ -54,4 +54,17 @@
       color: $blue6;
     }
   }
+  .actionButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .button {
+      cursor: pointer;
+      border: 0.0625rem solid $gray3;
+      padding: 0.375rem 1.25rem;
+      border-radius: 30% / 100%;
+      background-color: $blue4;
+      color: $light;
+    }
+  }
 }

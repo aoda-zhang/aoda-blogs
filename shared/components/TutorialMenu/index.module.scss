@@ -1,6 +1,6 @@
 @import "@style";
 
-.tutorialTitle {
+.tutorialMenu {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -10,24 +10,39 @@
     color: $primary-color;
   }
 }
-.line {
-  padding-top: 0.5rem;
-}
-
-.toturailMenumodal {
+.pcMenuModal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
+  height: 80%;
+  overflow: auto;
   padding: 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.625rem;
-  justify-content: space-between;
   background-color: $light;
   outline-color: aliceblue;
-  .menuItem {
+  .pcItem {
     width: 46%;
+  }
+}
+.mobileMenuModal {
+  :global(.MuiPaper-root) {
+    height: 70%;
+    padding: 0.75rem;
+  }
+  .mobileItem {
+    width: 100%;
+  }
+}
+.headline {
+  text-align: center;
+  margin-bottom: 0.875rem;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .menuItem {
+    margin-bottom: 0.875rem;
   }
 }

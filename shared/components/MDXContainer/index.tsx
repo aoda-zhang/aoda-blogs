@@ -79,6 +79,10 @@ export default async function MDXContainer(params: ItemType) {
           <EmptyContent />
         )}
       </div>
+      <div className={styles.actionButtons}>
+        <button className={styles.button}>{`< Previous Post`}</button>
+        <button className={styles.button}>{`Next Post >`}</button>
+      </div>
     </div>
   );
 }
