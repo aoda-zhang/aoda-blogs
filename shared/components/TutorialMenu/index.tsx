@@ -1,4 +1,3 @@
-"use client";
 import React, { FC, memo, useState } from "react";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { Drawer, Modal } from "@mui/material";
@@ -9,12 +8,10 @@ import globalStore from "@/store/globalStore";
 import styles from "./index.module.scss";
 import TutorialItem from "../TutorialItem";
 import tutorialRouters from "@/docs/tutorials/router";
-import useIsMobile from "@/shared/hooks/useIsMobile";
 import classNames from "classnames";
 
 const TutorialMenu: FC = () => {
   const locale = globalStore(state => state?.locale);
-  const isMobile = useIsMobile();
   const [isPCOpen, setPCOpen] = useState(false);
   const [isMobileOpen, setMobileOpen] = useState(false);
   const MenuIContents = ({ itemClassName = "" }) => {
@@ -42,34 +39,31 @@ const TutorialMenu: FC = () => {
   };
   const PCMenu = () => {
     return (
-      !isMobile && (
-        <Modal
-          open={isPCOpen}
-          onClose={() => {
-            setPCOpen(false);
-          }}
-        >
-          <div className={styles.pcMenuModal}>
-            <MenuIContents itemClassName={styles.pcItem} />
-          </div>
-        </Modal>
-      )
+      <Modal
+        open={isPCOpen}
+        onClose={() => {
+          setPCOpen(false);
+        }}
+        className={styles.pcMenuModal}
+      >
+        <div className={styles.pcMenuContent}>
+          <MenuIContents itemClassName={styles.pcItem} />
+        </div>
+      </Modal>
     );
   };
   const MobileMenu = () => {
     return (
-      isMobile && (
-        <Drawer
-          open={isMobileOpen}
-          onClose={() => {
-            setMobileOpen(false);
-          }}
-          anchor="bottom"
-          className={styles.mobileMenuModal}
-        >
-          <MenuIContents itemClassName={styles.mobileItem} />
-        </Drawer>
-      )
+      <Drawer
+        open={isMobileOpen}
+        onClose={() => {
+          setMobileOpen(false);
+        }}
+        anchor="bottom"
+        className={styles.mobileMenuModal}
+      >
+        <MenuIContents itemClassName={styles.mobileItem} />
+      </Drawer>
     );
   };
 

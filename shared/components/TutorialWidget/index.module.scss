@@ -10,5 +10,8 @@
     }
     .item {
         width: 30%;
+        @include medias(($s, $m)) {
+            width: 100%;
+        }
     }
 }

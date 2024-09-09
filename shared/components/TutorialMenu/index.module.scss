@@ -11,21 +11,30 @@
   }
 }
 .pcMenuModal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  height: 80%;
-  overflow: auto;
-  padding: 1.25rem;
-  background-color: $light;
-  outline-color: aliceblue;
-  .pcItem {
-    width: 46%;
+  @include medias(($s, $m)) {
+    display: none;
+  }
+  .pcMenuContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 80%;
+    overflow: auto;
+    padding: 1.25rem;
+    background-color: $light;
+    outline-color: aliceblue;
+    .pcItem {
+      width: 46%;
+    }
   }
 }
+
 .mobileMenuModal {
+  @include medias(($l, $xl)) {
+    display: none;
+  }
   :global(.MuiPaper-root) {
     height: 70%;
     padding: 0.75rem;
