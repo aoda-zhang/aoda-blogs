@@ -5,9 +5,8 @@
   padding: 0.625rem;
   border: 0.0625rem solid var(--second-border-color);
   border-radius: 0.875rem;
-  @include medias($s) {
+  @include medias(($s, $m)) {
     border-bottom: 0.0625rem solid var(--border-color);
-    padding-bottom: 1.25rem;
   }
   @include medias(($l, $xl)) {
     &:hover {
@@ -24,7 +23,6 @@
     display: flex;
     gap: 0.875rem;
     align-items: center;
-    margin-bottom: 0.25rem;
     .index {
       align-items: center;
       background-color: $blue2;
@@ -53,5 +51,6 @@
     white-space: normal;
     font-size: 1rem;
     line-height: 1.4;
+    margin-top: 0.25rem;
   }
 }
