@@ -56,5 +56,5 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@9.7.1"
+  "packageManager": "pnpm@9.10.0"
 }
