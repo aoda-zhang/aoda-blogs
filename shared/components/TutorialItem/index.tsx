@@ -1,12 +1,12 @@
-import React, { FC, memo } from "react";
+import React, { type FC, memo } from "react";
 
-import { PostItemType } from "@/types";
+import type { PostItemType } from "@/types";
 
 import styles from "./index.module.scss";
 import classNames from "classnames";
 import Link from "next/link";
 import pageKeys from "@/constants/pageKey";
-import LanguageKeys from "@/constants/languageKeys";
+import type LanguageKeys from "@/constants/languageKeys";
 type Props = PostItemType & {
   className?: string;
   locale: LanguageKeys;

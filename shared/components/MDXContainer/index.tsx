@@ -1,11 +1,11 @@
-import path from "path";
-import fs from "fs";
+import path from "node:path";
+import fs from "node:fs";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "rehype-highlight";
 import Image from "next/image";
 
-import { ItemType, PostItemType } from "@/types";
+import type { ItemType, PostItemType } from "@/types";
 // U can choose the theme that u prefered
 import "highlight.js/styles/stackoverflow-dark.min.css";
 import pageKeys from "@/constants/pageKey";
@@ -80,8 +80,12 @@ export default async function MDXContainer(params: ItemType) {
         )}
       </div>
       <div className={styles.actionButtons}>
-        <button className={styles.button}>{`< Previous Post`}</button>
-        <button className={styles.button}>{`Next Post >`}</button>
+        <button className={styles.button} type="button">
+          {"< Previous Post"}
+        </button>
+        <button className={styles.button} type="button">
+          {"Next Post >"}
+        </button>
       </div>
     </div>
   );

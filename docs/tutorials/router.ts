@@ -1,4 +1,4 @@
-import { PostItemType } from "@/types";
+import type { PostItemType } from "@/types";
 
 const tutorialRouters: PostItemType[] = [
   {
@@ -8,7 +8,7 @@ const tutorialRouters: PostItemType[] = [
     tags: ["git", "node", "react", "nestjs"],
   },
   {
-    title: "Getting Started",
+    title: "Get Started",
     desc: "Start to create your react project, and make it stronger and stronger!",
     postPath: "2",
     tags: ["react", "husky", "pnpm", "biome", "vite"],
@@ -50,7 +50,7 @@ const tutorialRouters: PostItemType[] = [
     tags: ["react", "configs", "yaml", "environment"],
   },
   {
-    title: "Date fetch and API management",
+    title: "Data fetch and API management",
     desc: "Learn how to set up react routers by react-router-dom and create nested pages",
     postPath: "4",
     tags: ["react", "axios", "react-query"],

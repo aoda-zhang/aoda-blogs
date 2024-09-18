@@ -1,6 +1,6 @@
 import pageKeys from "@/constants/pageKey";
 import MDXContainer from "@/shared/components/MDXContainer";
-import { PostItemParam } from "@/types";
+import type { PostItemParam } from "@/types";
 import getServerMDXContant from "@/shared/utils/getServerMDXContent";
 
 const tutorialPath = `/${pageKeys.docs}/${pageKeys.tutorial}`;
@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 }
 
 export default function PostItemPage(params: PostItemParam) {
-  const [locale, postPath] = params?.params?.slug;
+  const [locale, postPath] = params?.params?.slug ?? {};
   return (
     <MDXContainer
       locale={locale}

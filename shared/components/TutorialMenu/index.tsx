@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from "react";
+import React, { type FC, memo, useState } from "react";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { Drawer, Modal } from "@mui/material";
 
@@ -17,7 +17,7 @@ const TutorialMenu: FC = () => {
   const MenuIContents = ({ itemClassName = "" }) => {
     return (
       <>
-        <div className={styles.headline}>Pick up your process !</div>
+        <div className={styles.headline}>Choose your progress !</div>
         <div className={styles.content}>
           {tutorialRouters?.map((item, i) => (
             <TutorialItem

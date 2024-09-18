@@ -12,6 +12,7 @@ const TutorialWidget = () => {
     <div className={styles.widget}>
       {tutorialRouters?.map((item, i) => (
         <TutorialItem
+          key={item?.title}
           locale={locale}
           {...item}
           index={i + 1}
