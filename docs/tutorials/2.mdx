@@ -1,95 +1,51 @@
 ## Check your NodeJs
-Firstly,Just run this below command to make sure you have downloaded the NodeJs in yourlocal,
-this is the most import step ! <br/>
+Firstly,Just run this below command to make sure you have downloaded the NodeJs in your local,
+this is the most important step here! <br/>
 ```zsh
 node -v
 ```
-and
-```zsh
-npm -v
-```
-## Init a new React project.
-Secondly,Run this command to create your React project,my-app will be your project name.
-```zsh
-npx create-react-app my-app --template typescript
-```
-I know some developers will say "reate-react-app is outdated, we should use create-next-app 
-to initialize our react front-end project, Nextjs will provide better performance, 
-and React officials also recommend using Nextjs" But, please stop!,
-All we want is a single-page React project, we don't care about topics 
-such as SCR, SSR, and if developers have experience in Nextjs development, 
-they should know that Nextjs has advantages and disadvantages. 
-For a simple React front-end project, we don't need to initialize a 
-Nextjs project, that's not what we want, so in my opinion, CRA is still
-the most useful way to create a SPA react project.<br/>
+## Migrate to pnpm ( optional,recommended )
 
-On this topic, you can read this article to get more ideas [Create React App (CRA) vs. Next.js](https://prismic.io/blog/create-react-app-cra-vs-nextjs#so-should-you-use-cra-or-nextjs)<br/>
+If you are a JavaScript developer, you will know we have to choose a package manager to install our project
+dependencies. I bet that most people used npm to be your first package manager, yes i did that too, but as time goes
+by,i found it tooks more time to install with the project grow. i tried to find out a better one, yes,that is <b>pnpm</b>,it is really really 
+faster than npm, mean while , the node_modules size is become less,plus, you can still use npm command to run pnpm. I will highly recommend you give a try for pnpm.
+it is time to consider to replace your package manager.I already have used pnpm 1 year, so far so good, i feeled luckly to choose it. <br/>
+
+<b>Just run this command to install pnpm globally if you want to migrate to pnpm from npm</b>
+
+```sh
+npm install -g pnpm
+```
+
+More about pnpm ,please refer to [here](https://pnpm.io).
+
+## Create a new React project by Vite.
+
+### What is Vite ?
+
+This is Vite offical desLVite is a build tool that aims to provide a faster and leaner development experience for modern web projects. ()
+
+### Why creat React project by Vite ?
+
+If your app has unusual constraints not served well by these frameworks, or you prefer to solve these problems yourself, you can roll your own custom setup with React. Grab react and react-dom from npm, 
+set up your custom build process with a bundler like Vite or Parcel, 
+and add other tools as you need them for routing, static generation or server-side rendering, and more.
+
+More about Vite, please refer to [here](https://vitejs.dev).
+
+<b>Just run this command to create your first React + Vite project</b>
+
+```sh
+pnpm create vite fullStack-React --template react-swc-ts
+```
+
 ## Adjust default folder or files
 At this step,you have created your React project successfuly,Cheers 🍻.
 
-Plus, we need to remove or add some folders or files, which are based on the best practices of real projects to ensure that our projects can be better maintained.
+But not yet, we still need to remove or add some folders or files.
 
-<b>1. Remove those below files</b>
-- node_modules
-- package-lock.json
-- src/App.css
-- src/App.test.tsx
-- src/index.css
-- src/logo.svg
-- src/reportWebVitals.ts
-- src/setupTests.ts
-
-<b>Check the file src/App.tsx and src/index.tsx,make sure those above removed files is NOT imported.</b><br/>
-
-<b>2. Remove those libraries from package.json dependencies </b>
-- @testing-library/jest-dom,
-- @testing-library/react
-- @testing-library/user-event
-- web-vitals
-- @types/jest
-
-Finaly,your package.json like this 
-```json
-{
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@types/node": "^16.18.106",
-    "@types/react": "^18.3.4",
-    "@types/react-dom": "^18.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
-}
-```
-<b>3. 在src中添加shared文件夹</b>
+<b>3. Add the 在src中添加shared文件夹</b>
 
 shared文件夹可以存放一些多次被复用的公共组件,工具方法等,这也是我们优化项目代码非常重要的一步.<br/>
 最终,我们的项目文件结构会是这样
@@ -102,30 +58,13 @@ shared文件夹可以存放一些多次被复用的公共组件,工具方法等,
 │  ├─ index.tsx
 │  ├─ App.tsx
 │  └─ react-app-env.d.ts
+│  └─ shared
 └─ public
    ├─ favicon.ico
    ├─ index.html
    ├─ manifest.json
    ├─ robots.txt
 ```
-
-## Migrate to pnpm ( optional,recommended )
-到这一步,我们已经完成了你的react项目文件的调整,接下来我们只需要Install package.json中所需的library,
-运行package.json中的script即可.
-
-通常对于javaScript项目,无论是React还是NodeJs,我们都会选择npm来做为我们的包管理器,这也是我作为开发人员首次
-接触的包管理器,但是随着时间的推移,我发现npm每次install时都非常缓慢,尤其是在大型项目中,这让我非常抓狂,后来很多一段时间
-我使用了yarn,但之后yarn的更新变得非常频繁,yarn的第四个版本出现时我必须做出很多更改,这不是我想要的,我开始了解从社区中寻找更优的
-包管理器,没错,就是<b>pnpm</b>,它install时非常非常非常迅速,而且由于它的一些优化策略,node_modules也变得很小,而且它的命令和npm完全兼容,
-目前我已经使用它一年多了,我很庆幸我能及时的选择了它,如果你还在使用npm或者yarn,我强烈推荐你是时候尝试下pnpm了,当然出于项目维护稳定或者
-其他原因,你也可以继续使用 npm 或者 yarn.
-
-迁移包管理器到pnpm只需要采用 npm 全局安装pnpm即可.
-```sh
-npm install -g pnpm
-```
-
-关于pnpm的更多细节,你可以从[这里](https://pnpm.io)获得了解.
 
 ## Install library
 不论我们的语言是JavaScript还是Java,在开发中我们都会大量使用已存在的第三方library,以JavaScript为语言的项目,依赖的第三方library都会在根目录的
@@ -248,4 +187,3 @@ pnpm add --save-dev --save-exact @biomejs/biome
 在你的VSCode插件扩展中搜索Biome并安装,并且按照说明在你的项目中进行设置即可.
 
 ## Precheck before commit
-## Migrate to Vite
