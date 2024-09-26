@@ -1,15 +1,17 @@
 ## Check your NodeJs
-Firstly,Just run this below command to make sure you have downloaded the NodeJs in your local,
-this is the most important step here! <br/>
+Run this command to make sure you have downloaded the NodeJs in your local,
+<b>this is the most important step here! </b><br/>
 ```zsh
 node -v
 ```
+Basicly you will get a specific node version like <b>v20.17.0</b> if you have already downloaded Nodejs.
+
 ## Migrate to pnpm ( optional,recommended )
 
 If you are a JavaScript developer, you will know we have to choose a package manager to install our project
 dependencies. I bet that most people used npm to be your first package manager, yes i did that too, but as time goes
 by,i found it tooks more time to install with the project grow. i tried to find out a better one, yes,that is <b>pnpm</b>,it is really really 
-faster than npm, mean while , the node_modules size is become less,plus, you can still use npm command to run pnpm. I will highly recommend you give a try for pnpm.
+faster than npm, mean while , the node_modules size is become less,plus, you can still use npm command to run pnpm. <b>I will highly recommend you give pnpm a try！！</b>.
 it is time to consider to replace your package manager.I already have used pnpm 1 year, so far so good, i feeled luckly to choose it. <br/>
 
 <b>Just run this command to install pnpm globally if you want to migrate to pnpm from npm</b>
@@ -17,96 +19,72 @@ it is time to consider to replace your package manager.I already have used pnpm 
 ```sh
 npm install -g pnpm
 ```
-
-More about pnpm ,please refer to [here](https://pnpm.io).
+<b>More about pnpm ,please refer to [here](https://pnpm.io).</b>
 
 ## Create a new React project by Vite.
 
-### What is Vite ?
-
-This is Vite offical desLVite is a build tool that aims to provide a faster and leaner development experience for modern web projects. ()
-
-### Why creat React project by Vite ?
-
-If your app has unusual constraints not served well by these frameworks, or you prefer to solve these problems yourself, you can roll your own custom setup with React. Grab react and react-dom from npm, 
-set up your custom build process with a bundler like Vite or Parcel, 
-and add other tools as you need them for routing, static generation or server-side rendering, and more.
+Currently, there are many different ways to create a React project, we will choose Vite to make it,
+cause Vite aims to provide a faster and leaner development experience for modern web projects.
 
 More about Vite, please refer to [here](https://vitejs.dev).
 
-<b>Just run this command to create your first React + Vite project</b>
+First, you should clone your project in your local, then <b>Just run this command to create your first React project</b>
 
 ```sh
-pnpm create vite fullStack-React --template react-swc-ts
+pnpm create vite .
 ```
+choose <b>React</b> and <b>TypeScript + SWC</b>.
 
-## Adjust default folder or files
 At this step,you have created your React project successfuly,Cheers 🍻.
 
-But not yet, we still need to remove or add some folders or files.
+In the end,our project is like
 
-<b>3. Add the 在src中添加shared文件夹</b>
-
-shared文件夹可以存放一些多次被复用的公共组件,工具方法等,这也是我们优化项目代码非常重要的一步.<br/>
-最终,我们的项目文件结构会是这样
 ```json
+├─ tsconfig.node.json
+├─ index.html
+├─ tsconfig.app.json
 ├─ README.md
 ├─ .gitignore
 ├─ package.json
 ├─ tsconfig.json
+├─ eslint.config.js
+├─ vite.config.ts
 ├─ src
-│  ├─ index.tsx
 │  ├─ App.tsx
-│  └─ react-app-env.d.ts
-│  └─ shared
+│  ├─ main.tsx
+│  ├─ App.css
+│  ├─ index.css
+│  ├─ vite-env.d.ts
+│  └─ assets
+│     └─ react.svg
 └─ public
-   ├─ favicon.ico
-   ├─ index.html
-   ├─ manifest.json
-   ├─ robots.txt
+   └─ vite.svg
 ```
+Then run <b>pnpm i</b> in your terminal to install all the dependencies, and Run <b>pnpm dev</b> to start your project .
 
-## Install library
-不论我们的语言是JavaScript还是Java,在开发中我们都会大量使用已存在的第三方library,以JavaScript为语言的项目,依赖的第三方library都会在根目录的
-package.json中记录,通常安装这些library只需要选择一个包管理器,运行初始化命令,便可自动集成这些library.
+Your project will oepn in your browser automatically when you click the link in your terminal .
 
-打开你的终端,运行以下命令即可.
+Here it is 👏🏻👏🏻👏🏻 !!
 
-```sh
-pnpm i
-```
-or
-```sh
-npm i
-```
-or
-```sh
-yarn
-```
-## Make your codes stronger!
-到这一步, 你已经可以成功的启动你的react项目了,但是这还不够!
-我们都知道在实际项目中,我们的代码通常都会由一个团队来共同迭代,为了让我们的项目得到更好的维护,通常我们都会制定一些共同需要遵守的”开发规则“,
-同时,每一个语言或者框架,都会有一些最基本的最佳实践,这些实践会让我们的代码更为健壮!
+<img src="https://s1.locimg.com/2024/09/26/b9d309e653dd9.png" alt="Screenshot 2024-09-26 at 9.53.30 PM.png" title="Screenshot 2024-09-26 at 9.53.30 PM.png" />
 
-那么,以JavaScript为语言的项目,如何实现上述目标呢.
+## Make your project stronger!
+At this point, you have successfully run your project locally, but it is NOT enough!
 
-一些开发者可能会提到 Eslint + Prettier + StyleLint
+We all know,basically , we will set up some rules to make our project code quality to be stronger.
 
-不不不,这不是最好的方法.
+I will recommend that you shoul give <b>Biome</b> a try. NOT continue to use Eslint + Prettier + StyleLint
 
-我承认在过去很长时间里,我都采用了上述三个的组合来让我的代码更多健壮,但是每次当我接触新项目,我都需要花费很多时间来逐一集成这三个,这花费了我很多时间,
-也让我感觉很心累,我渴望能够拥有一个简单的方式,来让我集成上述三个,并且还会默认提供其他更多的最佳实践.
+<b>More about Biome , please refer to [here](https://biomejs.dev).</b>
 
-有一天当我无意间在一篇技术博客里看到 <b>Biome</b> 时, 我感觉我发现了宝藏,这就是我一直想拥有的东西,Biome集成了 Eslint,Prettier,StyleLint还有其他的一些最佳实践,
-也提供了让我们从Eslint直接迁移到Biome的方法,我们唯一需要做的就是采用一个yaml config文件,便可将神奇的Biome集成到我们的项目了,于是,我认真查看了Biome的官方文档以及其他
-一些开发者的反馈之后,我坚定的使用了Biome, 放弃了Eslint.
+### Follow below steps , you will get Biome !
 
-<b>1. 安装Biome</b>
+<b>1. Install Biome</b>
 
 ```zsh
 pnpm add --save-dev --save-exact @biomejs/biome
 ```
-<b>2. 配置Biome</b>
+<b>2.Configureing Biome</b>
 ```json
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
@@ -163,15 +141,15 @@ pnpm add --save-dev --save-exact @biomejs/biome
 }
 
 ```
-这些config都会开启默认的推荐规则,你也可以根据项目的需要调整上述config,<b>更多详情,请查看[Biome官网文档](https://biomejs.dev/zh-cn)</b>
+You can flexibly change the configuration according to your project.more configurations please refer to .[Biome](https://biomejs.dev)
 
-<b>3. 配置运行命令</b>
+<b>3. Configureing command</b>
 
-打开你的根目录package.json,在src中添 biome:check 命令
+Add the command biome:check under scripts in your project root file package.json
 ```zsh
 "biome:check": "biome check . --write --unsafe --files-ignore-unknown=true --no-errors-on-unmatched"
 ```
-最终你的package.json中的script看起来会像这样
+In the end, the package.json is like this 
 ```zsh
   "scripts": {
     "start": "react-scripts start",
