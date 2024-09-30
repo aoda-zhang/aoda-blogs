@@ -19,14 +19,14 @@ it is time to consider to replace your package manager.I already have used pnpm 
 ```sh
 npm install -g pnpm
 ```
-<b>More about pnpm ,please refer to [here](https://pnpm.io).</b>
+More about pnpm ,please refer to [pnpm](https://pnpm.io).
 
 ## Create a new React project by Vite.
 
 Currently, there are many different ways to create a React project, we will choose Vite to make it,
 cause Vite aims to provide a faster and leaner development experience for modern web projects.
 
-More about Vite, please refer to [here](https://vitejs.dev).
+More about Vite, please refer to [Vite](https://vitejs.dev).
 
 First, you should clone your project in your local, then <b>Just run this command to create your first React project</b>
 
@@ -73,18 +73,22 @@ At this point, you have successfully run your project locally, but it is NOT eno
 
 We all know,basically , we will set up some rules to make our project code quality to be stronger.
 
-I will recommend that you shoul give <b>Biome</b> a try. NOT continue to use Eslint + Prettier + StyleLint
+I will recommend that you shoul give <b>Biome</b> a try. NOT continue to use traditional way for Eslint + Prettier + StyleLint
 
-<b>More about Biome , please refer to [here](https://biomejs.dev).</b>
+More about Biome , please refer to [Biome](https://biomejs.dev).
 
-### Follow below steps , you will get Biome !
+<b>Follow below steps , you will get Biome !</b>
 
-<b>1. Install Biome</b>
+<b>1. Remove Eslint and Install Biome</b>
+
+Firstly,Remove the eslint.config.js file and all the depends about eslint in package.json, Then run this below command
 
 ```zsh
 pnpm add --save-dev --save-exact @biomejs/biome
 ```
 <b>2.Configureing Biome</b>
+
+Create the <b>biome.json</b> in your project root,and copy the configuration into <b>biome.json</b>
 ```json
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
@@ -105,11 +109,14 @@ pnpm add --save-dev --save-exact @biomejs/biome
       "nursery": {
         "recommended": true
       },
+      "a11y": {
+        "useButtonType": "warn"
+      },
+      "style": {
+        "noNonNullAssertion": "warn"
+      }
     },
-    "ignore": [
-      "./.vscode/*",
-      "node_modules"
-    ]
+    "ignore": ["./.vscode/*", "node_modules"]
   },
   "javascript": {
     "jsxRuntime": "reactClassic",
@@ -160,8 +167,67 @@ In the end, the package.json is like this
   }
 ```
 
-<b>4. 安装VSCode插件</b>
+<b>4. Verif the biome result</b>
 
-在你的VSCode插件扩展中搜索Biome并安装,并且按照说明在你的项目中进行设置即可.
+Just run the command biome:check in your terminal to make sure you have established biome successfully in your project .
+
+That means you got it if you see something like this picture 
+<img src="https://s1.locimg.com/2024/09/28/ebd8aa09233b4.png" alt="Screenshot 2024-09-28 at 9.52.02 PM.png" title="Screenshot 2024-09-28 at 9.52.02 PM.png" />
+
+<b>5. Install Vscode plugin</b>
+
+Searching the plugin named <b>Biome</b>,then set up in your VSCode.
 
 ## Precheck before commit
+
+At this point, we have established our stronger rules for our project , basically , biome will help us to check all the recommend rules,
+we can make it by run the biome:check command .
+
+But, let's think again , we don't want to do that every time we commit code manually ,it's a little 
+troublesome, right ? 
+
+so, how should we do that ?
+
+ok, just imagine , if we can run the command biome:check automatically when we commit code , that would be a good
+approach , that means we never need to run that shit command manually !!!!
+
+so, that is it, that is <b>Husky + Lint-staged</b >, basically, Husky will automatically run the command that we configed when we commit code every time,
+Lint-staged will pick up the code that you changed for this commit.
+
+More , please refer to [Husky](https://typicode.github.io/husky) and [Lint-staged](https://github.com/lint-staged/lint-staged#readme)
+
+<b>Follow this below steps , you will get it !</b>
+
+1. Install Husky and Lint-staged
+
+```zsh
+pnpm add --save-dev husky lint-staged
+
+```
+2. Add Husky and Lint-staged option
+
+Add those options in package.json,Run <b>pnpm i</b> again !
+
+```json
+"scripts": {
+    "prepare": "husky",
+    "lint-staged": "tsc && lint-staged"
+  },
+"lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx,json,md}": ["pnpm biome:check"]
+  },
+```
+Then you will find the .husky folder in the root
+
+3. Configure the pre-commit git hooks
+
+Add the pre-commit file and type <b>pnpm lint-staged</b>
+
+<img src="https://s1.locimg.com/2024/09/30/23605a4e7b3ed.png" alt="Screenshot 2024-09-30 at 11.19.22 AM.png" title="Screenshot 2024-09-30 at 11.19.22 AM.png" />
+
+Now,it will automatically check when we commit code every time, Awesome !!
+
+## Next section
+
+Until now , we have totally completed our react project set up work, next section, let's drive deeper into react 
+router and see <b>how can we handle react pages and layout</b> , let's go !
