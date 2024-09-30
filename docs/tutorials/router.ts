@@ -14,8 +14,8 @@ const tutorialRouters: PostItemType[] = [
     tags: ["react", "husky", "pnpm", "biome", "vite"],
   },
   {
-    title: "Routers and layout management",
-    desc: "Learn how to set up react routers by react-router-dom and create nested pages",
+    title: "Pages and layout management",
+    desc: "Learn how to handle layout page in React and create nested pages",
     postPath: "3",
     tags: ["react", "react-router-dom", "layout"],
   },
