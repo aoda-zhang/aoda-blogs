@@ -1,16 +1,8 @@
-"use client"
+"use client";
 import React, { memo } from "react";
-import { useLottie } from "lottie-react";
-
-import notFoundJSON from "@/shared/lotties/notFound.json";
 
 const NotFound = () => {
-  const options = {
-    animationData: notFoundJSON,
-    loop: true
-  };
-  const { View } = useLottie(options);
-  return <div className="centerBox mw">{View}</div>;
+  return <div className="centerBox mw">ooooooops something went wrong!!</div>;
 };
 
 export default memo(NotFound);
