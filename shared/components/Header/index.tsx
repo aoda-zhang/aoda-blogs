@@ -33,10 +33,16 @@ const Header: FC = () => {
   const RightMenu = () => {
     return (
       <>
-        <TutorialMenu />
-        {/* <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
+        {/* <TutorialMenu /> */}
+        <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
+          {menuKeys?.[locale]?.FE}
+        </Link>
+        <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
+          {menuKeys?.[locale]?.BE}
+        </Link>
+        <Link href={`/${pageKeys.blog}`} className={styles.menuItem}>
           {menuKeys?.[locale]?.blog}
-        </Link> */}
+        </Link>
         <Link href={`/${pageKeys.about}`} className={styles.menuItem}>
           {menuKeys?.[locale]?.about}
         </Link>

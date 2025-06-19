@@ -1,15 +1,17 @@
 const menuKeys = {
   en: {
-    blog: "Blog",
+    FE: "FrontEnd",
+    BE: "BackEnd",
+    blog: "Blogs",
     about: "About Me",
     fullStackGuide: "Tutorials",
-    FFTF: "From front-end to full-stack",
   },
   zh: {
+    FE: "前端",
+    BE: "后端",
     blog: "博客",
     about: "关于我",
     fullStackGuide: "全栈开发指引文档",
-    FFTF: "从前端到全栈",
   },
 };
 
