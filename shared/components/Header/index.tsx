@@ -9,33 +9,38 @@ import Drawer from "@mui/material/Drawer";
 import lightTheme from "@/public/images/moon.svg";
 import dayTheme from "@/public/images/sun.svg";
 import globalStore from "@/store/globalStore";
-import menuKeys from "@/constants/menuKeys";
-import languageLightIcon from "@/public/images/light_language.png";
 import me from "@/public/images/me.webp";
 import LanguageKeys from "@/constants/languageKeys";
-import languageIcon from "@/public/images/language.png";
+import pageKeys from "@/constants/pageKey";
 
 import styles from "./index.module.scss";
 
+const menuKeys = [
+  {
+    key: "FrontEnd",
+    href: `/${pageKeys.blog}`,
+  },
+  {
+    key: "BackEnd",
+    href: `/${pageKeys.blog}`,
+  },
+  {
+    key: "About Me",
+    href: `/${pageKeys.about}`,
+  },
+];
+
 const Header: FC = () => {
-  const {
-    isDarkMode,
-    setLocale,
-    setDarkMode,
-    locale = LanguageKeys.en,
-  } = globalStore();
+  const { isDarkMode, setDarkMode } = globalStore();
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
   const RightMenu = () => {
-    const headerMenuOptions = useMemo(() => {
-      return menuKeys?.[locale];
-    }, []);
     return (
       <>
-        {headerMenuOptions?.map(item => (
+        {menuKeys?.map(item => (
           <Link key={item.key} href={item.href} className={styles.menuItem}>
             {item.key}
           </Link>

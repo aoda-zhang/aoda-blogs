@@ -15,20 +15,19 @@ function Home() {
 
       <div className={styles.right}>
         <p>
-          <span>HI THERE!</span>
+          <span>HI THERE! 👋</span>
           <span style={{ marginLeft: "10px" }}>I&#39;M</span>
         </p>
-        <p className={classNames([styles.title, styles.hightLight])}>Aoda</p>
+        <p className={classNames([styles.title, styles.hightLight])}>
+          Aoda Zhang
+        </p>
         <p className={classNames([styles.subTitle, styles.hightLight])}>
           Full Stack Software Developer
         </p>
         <p className={styles.content}>
-          With{" "}
-          <span className={classNames([styles.hightLight, styles.number])}>
-            8+
-          </span>{" "}
-          years of experience, I work mainly with the MERN stack, but I love
-          trying new tech. If you’re hiring, I’d be happy to chat!
+          MERN-focused full-stack developer with 8+ years of experience, skilled
+          in React, NestJS, MongoDB, and Azure, building scalable and modern web
+          applications.
         </p>
         <div className={styles.buttons}>
           <span className={styles.button}>My Project</span>

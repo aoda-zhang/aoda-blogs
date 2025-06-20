@@ -12,7 +12,7 @@ type GlobalAction = {
   setLocale: () => void;
 };
 const initialState: GlobalStage = {
-  isDarkMode: true,
+  isDarkMode: false,
   locale: LanguageKeys.en,
 };
 const globalPersist = persist<GlobalStage & GlobalAction>(
