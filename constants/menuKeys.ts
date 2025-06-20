@@ -1,18 +1,42 @@
+import pageKeys from "./pageKey";
+
 const menuKeys = {
-  en: {
-    FE: "FrontEnd",
-    BE: "BackEnd",
-    blog: "Blogs",
-    about: "About Me",
-    fullStackGuide: "Tutorials",
-  },
-  zh: {
-    FE: "前端",
-    BE: "后端",
-    blog: "博客",
-    about: "关于我",
-    fullStackGuide: "全栈开发指引文档",
-  },
+  en: [
+    {
+      key: "FrontEnd",
+      href: `/${pageKeys.blog}`,
+    },
+    {
+      key: "BackEnd",
+      href: `/${pageKeys.blog}`,
+    },
+    {
+      key: "Skills",
+      href: `/${pageKeys.skills}`,
+    },
+    {
+      key: "About Me",
+      href: `/${pageKeys.about}`,
+    },
+  ],
+  zh: [
+    {
+      key: "前端",
+      href: `/${pageKeys.blog}`,
+    },
+    {
+      key: "后端",
+      href: `/${pageKeys.blog}`,
+    },
+    {
+      key: "技能",
+      href: `/${pageKeys.blog}`,
+    },
+    {
+      key: "关于我",
+      href: `/${pageKeys.about}`,
+    },
+  ],
 };
 
 export default menuKeys;

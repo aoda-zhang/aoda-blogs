@@ -4,18 +4,14 @@ import Image from "next/image";
 
 import me from "@/public/images/me.webp";
 import Summary from "@/docs/about/summary.mdx";
-import SummaryZH from "@/docs/about/summary.zh.mdx";
-import globalStore from "@/store/globalStore";
-import LanguageKeys from "@/constants/languageKeys";
 
 import styles from "./index.module.scss";
 const Profile: FC = () => {
-  const locale = globalStore(state => state.locale);
   return (
     <div className={styles.profile}>
       <Image src={me} alt={""} className={styles.left} />
       <div className={styles.right}>
-        {locale === LanguageKeys.zh ? <SummaryZH /> : <Summary />}
+        <Summary />
       </div>
     </div>
   );

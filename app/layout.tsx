@@ -1,7 +1,6 @@
 "use client";
 import React, { FC, memo } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Metadata } from "next";
 import classNames from "classnames";
 
 import Footer from "@/shared/components/Footer";

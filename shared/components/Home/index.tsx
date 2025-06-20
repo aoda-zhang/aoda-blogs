@@ -6,7 +6,7 @@ import Link from "next/link";
 import me from "@/public/images/me.webp";
 import pageKeys from "@/constants/pageKey";
 
-import styles from "./home.module.scss";
+import styles from "./index.module.scss";
 
 function Home() {
   return (

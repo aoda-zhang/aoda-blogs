@@ -1,9 +1,11 @@
 const pageKeys = {
   blog: "blogs",
+  fe: "frontend",
+  be: "backend",
   about: "about",
-  tutorial: "tutorials",
   docs: "docs",
   home: "home",
+  skills: "skills",
 };
 
 export default pageKeys;

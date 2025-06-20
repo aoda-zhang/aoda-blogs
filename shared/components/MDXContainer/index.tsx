@@ -21,14 +21,9 @@ const options = {
     rehypePlugins: [rehypeHighlight],
   },
 };
-const getMdxContent = (
-  postPath: string,
-  fileFolder: string,
-  locale: string,
-) => {
-  const matchedPostPath = locale === "en" ? postPath : `${postPath}.${locale}`;
+const getMdxContent = (postPath: string, fileFolder: string) => {
   const postsDirectory = path.join(process.cwd(), fileFolder);
-  const filePath = path.join(postsDirectory, `${matchedPostPath}.mdx`);
+  const filePath = path.join(postsDirectory, `${postPath}.mdx`);
   return fs.readFileSync(filePath, "utf-8");
 };
 const getCurrentPostOptions = async (postPath: string, fileFolder: string) => {
@@ -37,16 +32,13 @@ const getCurrentPostOptions = async (postPath: string, fileFolder: string) => {
   if (fileFolder === `/${pageKeys.docs}/${pageKeys.blog}`) {
     currentPostLists = (await import("@/docs/blogs/router")).default;
   }
-  if (fileFolder === `/${pageKeys.docs}/${pageKeys.tutorial}`) {
-    currentPostLists = (await import("@/docs/tutorials/router")).default;
-  }
   return currentPostLists?.find(item => item?.postPath === postPath);
 };
 
 export default async function MDXContainer(params: ItemType) {
-  const { postPath, fileFolder, locale } = params;
+  const { postPath, fileFolder } = params;
   const currentPost = await getCurrentPostOptions(postPath, fileFolder);
-  const isContentEmpty = Boolean(getMdxContent(postPath, fileFolder, locale));
+  const isContentEmpty = Boolean(getMdxContent(postPath, fileFolder));
 
   return (
     <div className={styles.MDXContainer}>
@@ -72,7 +64,7 @@ export default async function MDXContainer(params: ItemType) {
       <div className={styles.mdxContent}>
         {isContentEmpty ? (
           <MDXRemote
-            source={getMdxContent(postPath, fileFolder, locale)}
+            source={getMdxContent(postPath, fileFolder)}
             options={options}
           />
         ) : (

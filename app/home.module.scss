@@ -1,48 +1,53 @@
 @import "@style";
-
-.home {
-    align-items: center;
+.homeContent {
+    position: absolute;
+    top: 44%;
+    left: 46%;
+    transform: translate(-50%, -50%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 40px auto;
+    align-items: center;
     justify-content: center;
-    gap: 1.875rem;
-    h1 {
-        font-size: 5rem;
-        font-weight: 800;
-        line-height: 1.2;
-        padding-top: 3rem;
-        padding-bottom: 1rem;
-        @include medias(($s, $m)) {
-            font-size: 3rem;
-        }
-    }
-    h2 {
-        font-size: 2.5rem;
-        font-weight: 600;
-        line-height: 1.2;
-        @include medias(($s, $m)) {
-            font-size: 2rem;
-        }
+    gap: 6rem;
+    .hightLight {
+        color: $green7;
     }
 
-    p {
-        color: var(--sub-text-color);
-        font-size: 1.875rem;
-        font-weight: 400;
-        padding: 0 2.875rem;
-
-        @include medias(($s, $m)) {
-            font-size: 1.625rem;
-            padding: 0.875rem;
-        }
+    .left {
+        width: 54%;
+        height: auto;
     }
-    .start {
-        cursor: pointer;
-        margin: 3.75rem auto;
-        background-color: var(--primary-text-color);
-        color: var(--theme-color);
-        padding: 1rem;
-        border-radius: 1rem;
-        font-size: 1.5rem;
+    .right {
+        min-width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        .title {
+            font-size: 60px;
+        }
+        .subTitle {
+            font-size: 1.875rem;
+        }
+        .content {
+            line-height: 1.4;
+            font-size: 1.25rem;
+            .number {
+                font-size: 1.5rem;
+            }
+        }
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 1.875rem;
+            .button {
+                cursor: pointer;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 1.875rem;
+                background-color: $green7;
+            }
+        }
     }
 }
