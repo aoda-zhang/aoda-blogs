@@ -1,10 +1,11 @@
 "use client";
 import React, { FC, memo } from "react";
 import Image from "next/image";
+
 import me from "@/public/images/me.webp";
+import SocialLink from "@/shared/components/SocialLink";
 
 import styles from "./index.module.scss";
-import SocialLink from "@/shared/components/SocialLink";
 
 const About: FC = () => {
   return (
@@ -13,7 +14,7 @@ const About: FC = () => {
         <Image className={styles.me} src={me} alt={""} />
         <div className={styles.introduce}>
           <div className={styles.summary}>
-            <p>Hi 👋 , I'm Aoda from 🇨🇳</p>
+            {/* <p>Hi 👋 , I'm Aoda from 🇨🇳</p> */}
             <p>
               I began my journey in web development with a strong passion for
               building digital products. Since 2021, I’ve grown into a
