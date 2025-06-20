@@ -6,7 +6,7 @@ import Link from "next/link";
 import me from "@/public/images/me.webp";
 import pageKeys from "@/constants/pageKey";
 
-import styles from "./home.module.scss";
+import styles from "./page.module.scss";
 
 function Home() {
   return (
@@ -16,7 +16,7 @@ function Home() {
       <div className={styles.right}>
         <p>
           <span>HI THERE!</span>
-          <span style={{ marginLeft: "10px" }}>I'M</span>
+          <span style={{ marginLeft: "10px" }}>I&#39;M</span>
         </p>
         <p className={classNames([styles.title, styles.hightLight])}>Aoda</p>
         <p className={classNames([styles.subTitle, styles.hightLight])}>
