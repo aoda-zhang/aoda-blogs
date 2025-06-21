@@ -1,15 +1,15 @@
 "use client";
 import React, { FC, memo } from "react";
 import Image from "next/image";
+import classNames from "classnames";
 
 import me from "@/public/images/me.webp";
 import reactEcoSystemDark from "@/public/images/reactEcoSystemDark.png";
 import reactEcoSystemLight from "@/public/images/reactEcoSystemLight.png";
 import SocialLink from "@/shared/components/SocialLink";
+import globalStore from "@/store/globalStore";
 
 import styles from "./index.module.scss";
-import classNames from "classnames";
-import globalStore from "@/store/globalStore";
 
 const About: FC = () => {
   const isDarkMode = globalStore(state => state.isDarkMode);
@@ -23,7 +23,7 @@ const About: FC = () => {
 
         <div className={styles.introduce}>
           <div className={styles.summary}>
-            <p className={styles.title}>Hi there 👋 , I'm Aoda.</p>
+            <p className={styles.title}>Hi there 👋 , I&#39m Aoda.</p>
             <p>
               I started my journey in software development as a web developer,
               Since 2021, I’ve grown into a full-stack developer, focusing on
