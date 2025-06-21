@@ -20,6 +20,7 @@ const LinkOptions = [
   {
     href: "mailto:aodazhang666@gmail.com",
     src: email,
+    text: "aodazhang666@gmail.com",
   },
 ];
 
@@ -35,9 +36,10 @@ const SocialLink: FC = () => {
           className={styles.linkWrapper}
         >
           <Image className={styles.icon} src={item.src} alt="" />
+          {item?.text && <span>{item?.text}</span>}
         </Link>
       ))}
-      <span>aodazhang666@gmail.com</span>
+      <span></span>
     </div>
   );
 };

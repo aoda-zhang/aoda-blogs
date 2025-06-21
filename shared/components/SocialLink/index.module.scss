@@ -4,14 +4,19 @@
   align-items: center;
   display: flex;
   gap: 1.25rem;
-  .icon {
-    cursor: pointer;
-    height: auto;
-    transition: filter 0.3s ease;
-    width: 1.875rem;
+  .linkWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    .icon {
+      cursor: pointer;
+      height: auto;
+      transition: filter 0.3s ease;
+      width: 1.875rem;
 
-    &:hover {
-      filter: none;
+      &:hover {
+        filter: none;
+      }
     }
   }
 }
