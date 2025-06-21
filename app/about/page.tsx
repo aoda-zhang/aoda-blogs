@@ -4,8 +4,8 @@ import Image from "next/image";
 import classNames from "classnames";
 
 import me from "@/public/images/me.webp";
-import reactEcoSystemDark from "@/public/images/reactEcoSystemDark.png";
-import reactEcoSystemLight from "@/public/images/reactEcoSystemLight.png";
+import reactEcoSystemDark from "@/public/images/reactEcosystemDark.png";
+import reactEcoSystemLight from "@/public/images/reactEcosystemLight.png";
 import SocialLink from "@/shared/components/SocialLink";
 import globalStore from "@/store/globalStore";
 
